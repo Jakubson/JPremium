@@ -1,0 +1,104 @@
+settings:
+    mysql:
+        host: 127.0.0.1
+        port: 3306
+        user: root
+        password: pass
+        database: jpremium
+        table: users
+    login:
+        commands:
+            - login
+            - l
+        server: login
+        after: lobby
+        time: 20
+    register:
+        commands:
+            - register
+            - r
+        server: login
+        after: lobby
+        time: 30
+        captcha: true
+        captcha-length: 6
+    change-password:
+        commands:
+            - changepassword
+            - change
+    unregister:
+        commands:
+            - unregister
+            - unreg
+messages:
+    reload: '&a&lServer reload! &aJoin again!'
+    servers-not-responsing: '&cAuthentication servers do not respond, we can not verify your account!'
+    premium:
+        login:
+            fadeIn: 1
+            stay: 3
+            fadeOut: 1
+            title: '&a&lWelcome %PLAYER_NAME%!'
+            subtitle: '&aYou signed the premium account!'
+    nonpremium:
+        login:
+            before:
+                fadeIn: 1
+                stay: 18
+                fadeOut: 1
+                title: '&e&lPlease login using:'
+                subtitle: '&6/login <password>'
+            after:
+                fadeIn: 1
+                stay: 3
+                fadeOut: 1
+                title: '&a&lWelcome %PLAYER_NAME%!'
+                subtitle: '&aYou signed the non-premium account!'
+            error:
+                timeout: '&c&lTimeout! &cJoin to the server and try again!'
+                registered: '&c&lRegistered! &cYou must registerd to login!'
+                logged: '&c&lLogged! &cYou are already logged!'
+                enter-password: '&c&lInvalid arguments! &cEnter password and try again!'
+                incorrect-password: '&c&lIncorrect password! &cEnter correct password and try again!'
+        register:
+            before:
+                fadeIn: 1
+                stay: 28
+                fadeOut: 1
+                title: '&e&lPlease register using:'
+                subtitle: '&6/register <password> <re-password> <captcha>'
+            after:
+                fadeIn: 1
+                stay: 3
+                fadeOut: 1
+                title: '&a&lWelcome %PLAYER_NAME%!'
+                subtitle: '&aYou signed the non-premium account!'
+            captcha: '&c&lYOUR CAPTCHA CODE: &3&l%CAPTCHA%'
+            error:
+                timeout: '&c&lTimeout! &cJoin to the server and try again!'
+                registered: '&c&lRegistered! &cYou are already registered!'
+                enter-passwords: '&c&lInvalid arguments! &cEnter password, re-password, captcha and try again!'
+                passwords-same: '&c&lInvalid passwords! &cPassword are not same!'
+                incorrect-captcha: '&c&lIncorrect captcha! &cEnter correct captcha and try again!'
+        change-password:
+            after:
+                fadeIn: 1
+                stay: 3
+                fadeOut: 1
+                title: '&a&lSuccessful!'
+                subtitle: '&aYou password has been changed!'
+            error:
+                registred: '&c&lRegistered! &cYou are not registed!'
+                logged: '&c&lLogged! &cYou are not logged!'
+                enter-passwords: '&c&lInvalid arguments! &cEnter old password, password, re-password and try again!'
+                incorrect-old-password: '&c&lInvalid old password! &cEnter old password na try again!'
+                passwords-same: '&c&lInvalid passwords! &cPassword are not same!'
+        unregister:
+            after: '&a&lUnregistered! &aYou have been unregistered!'
+            error:
+                registered: '&c&lRegistered! &cYou are not registed!'
+                logged: '&c&lLogged! &cYou are not logged!'
+                premium: '&c&lYou are Premium &cYou can not unregister premium account!'
+                enter-password: '&c&lInvalid arguments! &cEnter password and try again!'
+                incorrect-password: '&c&lIncorrect password! &cEnter correct password and try again!'
+                
