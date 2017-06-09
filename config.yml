@@ -73,7 +73,7 @@ messages:
                 fadeOut: 1
                 title: '&a&lWelcome %PLAYER_NAME%!'
                 subtitle: '&aYou signed the non-premium account!'
-            captcha: '&c&lYOUR CAPTCHA CODE: &3&l%CAPTCHA%'
+            captcha: '&eYour captcha is &6%CAPTCHA%'
             error:
                 timeout: '&c&lTimeout! &cJoin to the server and try again!'
                 registered: '&c&lRegistered! &cYou are already registered!'
@@ -90,6 +90,7 @@ messages:
             error:
                 registred: '&c&lRegistered! &cYou are not registed!'
                 logged: '&c&lLogged! &cYou are not logged!'
+                premium: '&c&lYou are Premium &cYou can not change passeord for premium account!'
                 enter-passwords: '&c&lInvalid arguments! &cEnter old password, password, re-password and try again!'
                 incorrect-old-password: '&c&lInvalid old password! &cEnter old password na try again!'
                 passwords-same: '&c&lInvalid passwords! &cPassword are not same!'
