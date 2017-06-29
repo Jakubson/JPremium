@@ -6,19 +6,31 @@ settings:
         password: pass
         database: jpremium
         table: users
+    ## If 'false':
+    ##  premium players connect to 'login after' server
+    ##  cracked player connect to 'login server' server
+    login-system: true
     login:
         commands:
             - login
             - l
-        server: login
-        after: lobby
+        server:
+            - login1
+            - login2
+        after:
+            - lobby1
+            - lobby2
         time: 20
     register:
         commands:
             - register
             - r
-        server: login
-        after: lobby
+        server:
+            - login1
+            - login2
+        after:
+            - lobby1
+            - lobby2
         time: 30
         captcha: true
         captcha-length: 6
