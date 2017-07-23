@@ -6,10 +6,13 @@ settings:
         password: pass
         database: jpremium
         table: users
+    ## !!! NOT RECOMMEND !!!
+    ## !!! THE AUTHOR OF PLUGIN IS NOT RESPONSIBLE FOR ERRORS CAUSED BY DISABLING THIS OPTION !!!
     ## If 'false':
     ##  premium players connect to 'login after' server
-    ##  cracked player connect to 'login server' server
-    login-system: true
+    ##  cracked player connect to 'login server' server without check registration
+    login-system: true 
+    max-ip-accounts: 2
     login:
         commands:
             - login
@@ -44,7 +47,8 @@ settings:
             - unreg
 messages:
     reload: '&a&lServer reload! &aJoin again!'
-    servers-not-responsing: '&cAuthentication servers do not respond, we can not verify your account!'
+    servers-not-responsing: '&c&lError &cAuthentication servers do not respond, we can not verify your account!'
+    max-ip-accounts: '&c&lError &cYour ip address has already been registered with the maximum number of accounts!'
     premium:
         login:
             fadeIn: 1
