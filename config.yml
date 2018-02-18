@@ -13,6 +13,7 @@ settings:
     ##  cracked player connect to 'login server' server without check registration
     login-system: true 
     max-ip-accounts: 2
+    switch-server-timeout: 200
     login:
         commands:
             - login
@@ -56,6 +57,7 @@ messages:
             fadeOut: 1
             title: '&a&lWelcome %PLAYER_NAME%!'
             subtitle: '&aYou signed the premium account!'
+            chat: ''
     nonpremium:
         login:
             before:
@@ -64,18 +66,21 @@ messages:
                 fadeOut: 1
                 title: '&e&lPlease login using:'
                 subtitle: '&6/login <password>'
+                chat: ''
             after:
                 fadeIn: 1
                 stay: 3
                 fadeOut: 1
                 title: '&a&lWelcome %PLAYER_NAME%!'
                 subtitle: '&aYou signed the non-premium account!'
+                chat: ''
             error:
                 timeout: '&c&lTimeout! &cJoin to the server and try again!'
                 registered: '&c&lRegistered! &cYou must registerd to login!'
                 logged: '&c&lLogged! &cYou are already logged!'
                 enter-password: '&c&lInvalid arguments! &cEnter password and try again!'
                 incorrect-password: '&c&lIncorrect password! &cEnter correct password and try again!'
+                incorrect-nickname: '&c&lIncorrect nickname! &cLogin with %PLAYER_CORRECT_NAME% player name, not with %PLAYER_NAME%!'
         register:
             before:
                 fadeIn: 1
@@ -83,12 +88,14 @@ messages:
                 fadeOut: 1
                 title: '&e&lPlease register using:'
                 subtitle: '&6/register <password> <re-password> <captcha>'
+                chat: ''
             after:
                 fadeIn: 1
                 stay: 3
                 fadeOut: 1
                 title: '&a&lWelcome %PLAYER_NAME%!'
                 subtitle: '&aYou signed the non-premium account!'
+                chat: ''
             captcha: '&eYour captcha is &6%CAPTCHA%'
             error:
                 timeout: '&c&lTimeout! &cJoin to the server and try again!'
@@ -103,6 +110,7 @@ messages:
                 fadeOut: 1
                 title: '&a&lSuccessful!'
                 subtitle: '&aYou password has been changed!'
+                chat: ''
             error:
                 registred: '&c&lRegistered! &cYou are not registed!'
                 logged: '&c&lLogged! &cYou are not logged!'
