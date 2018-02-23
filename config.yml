@@ -76,7 +76,7 @@ messages:
                 chat: ''
             error:
                 timeout: '&c&lTimeout! &cJoin to the server and try again!'
-                registered: '&c&lRegistered! &cYou must registerd to login!'
+                registered: '&c&lRegistered! &cYou must registered to login!'
                 logged: '&c&lLogged! &cYou are already logged!'
                 enter-password: '&c&lInvalid arguments! &cEnter password and try again!'
                 incorrect-password: '&c&lIncorrect password! &cEnter correct password and try again!'
@@ -112,18 +112,47 @@ messages:
                 subtitle: '&aYou password has been changed!'
                 chat: ''
             error:
-                registred: '&c&lRegistered! &cYou are not registed!'
+                registred: '&c&lRegistered! &cYou are not registered!'
                 logged: '&c&lLogged! &cYou are not logged!'
-                premium: '&c&lYou are Premium &cYou can not change passeord for premium account!'
+                premium: '&c&lYou are Premium &cYou can not change password for premium account!'
                 enter-passwords: '&c&lInvalid arguments! &cEnter old password, password, re-password and try again!'
                 incorrect-old-password: '&c&lInvalid old password! &cEnter old password na try again!'
                 passwords-same: '&c&lInvalid passwords! &cPassword are not same!'
         unregister:
             after: '&a&lUnregistered! &aYou have been unregistered!'
             error:
-                registered: '&c&lRegistered! &cYou are not registed!'
+                registered: '&c&lRegistered! &cYou are not registered!'
                 logged: '&c&lLogged! &cYou are not logged!'
                 premium: '&c&lYou are Premium &cYou can not unregister premium account!'
                 enter-password: '&c&lInvalid arguments! &cEnter password and try again!'
                 incorrect-password: '&c&lIncorrect password! &cEnter correct password and try again!'
-                
+        jpremium-register:
+            after: '&a&lRegistered! &aYou have been registered new player!'
+            error:
+                registered: '&c&lRegistered! &cYou are not registered!'
+                logged: '&c&lLogged! &cYou are not logged!'
+                enter-nickname-and-password: '&c&lInvalid arguments! &cEnter player nickname and password!'
+                user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
+                user-is-exist: '&c&lUser is exist! &cThis user is already exist!'
+        jpremium-change-password:
+            after:
+                user-kick: '&a&lPassword Changed! &aYour password has been changed!'
+                password-changed: '&a&lPassword Changed! &aPassword has been changed!'
+            error:
+                registered: '&c&lRegistered! &cYou are not registered!'
+                logged: '&c&lLogged! &cYou are not logged!'
+                enter-nickname-and-password: '&c&lInvalid arguments! &cEnter player nickname and password!'
+                user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist!'
+                user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
+                user-is-not-registered: '&c&lUser is not registered! &cThis user is not registered!'
+        jpremium-unregister:
+            after:
+                user-kick: '&a&lUnregistered &aYou have been unregistered!'
+                unregistered: '&a&lUnregistered &aUser has been unregistered!'
+            error:
+                registered: '&c&lRegistered! &cYou are not registered!'
+                logged: '&c&lLogged! &cYou are not logged!'
+                enter-nickname: '&c&lInvalid arguments! &cEnter player nickname!'
+                user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist!'
+                user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
+                user-is-not-registered: '&c&lUser is not registered! &cThis user is not registered!'
