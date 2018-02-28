@@ -13,6 +13,7 @@ settings:
     ##  cracked player connect to 'login server' server without check registration
     login-system: true 
     max-ip-accounts: 2
+    max-connections: 15
     switch-server-timeout: 200
     login:
         commands:
@@ -50,6 +51,7 @@ messages:
     reload: '&a&lServer reload! &aJoin again!'
     servers-not-responsing: '&c&lError &cAuthentication servers do not respond, we can not verify your account!'
     max-ip-accounts: '&c&lError &cYour ip address has already been registered with the maximum number of accounts!'
+    max-connections: '&c&lError &cToo many players want to connection to the server now! Please wait and try again!'
     premium:
         login:
             fadeIn: 1
