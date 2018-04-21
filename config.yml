@@ -158,3 +158,12 @@ messages:
                 user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist!'
                 user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
                 user-is-not-registered: '&c&lUser is not registered! &cThis user is not registered!'
+        jpremium-verify:
+              after:
+                  premium: '&a&lPremium &aThis user is premium!'
+                  non-premium: '&a&lNon-Premium &aThis user is non-premium!'
+              error:
+                  registered: '&c&lRegistered! &cYou are not registered!'
+                  logged: '&c&lLogged! &cYou are not logged!'
+                  enter-nickname: '&c&lInvalid arguments! &cEnter player nickname!'
+                  user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist in JPremium database!'
