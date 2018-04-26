@@ -15,6 +15,7 @@ settings:
     max-ip-accounts: 2
     max-connections: 15
     website-register: false
+    users-synchronization: 0
     switch-server-timeout: 200
     login:
         commands:
