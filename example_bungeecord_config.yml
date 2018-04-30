@@ -5,7 +5,7 @@ servers:
         address: localhost:25565
         restricted: false
     register: #BungeeCord server name
-        motd: 'Login server'
+        motd: 'Register server'
         address: localhost:25566
         restricted: false
     login: #BungeeCord server name
