@@ -3,7 +3,7 @@ settings:
     login:
         commands:
           - login
-            - l
+          - l
         server:
           - login #BungeeCord server name
         after:
@@ -12,9 +12,9 @@ settings:
     register:
         commands:
           - register
-            - r
+          - r
         server:
-          - login #BungeeCord server name
+          - register #BungeeCord server name
         after:
           - lobby #BungeeCord server name
         time: 30
