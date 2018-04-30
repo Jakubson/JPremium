@@ -1,0 +1,23 @@
+settings:
+[...]
+    login:
+        commands:
+          - login
+            - l
+        server:
+          - login #BungeeCord server name
+        after:
+          - lobby #BungeeCord server name
+        time: 20
+    register:
+        commands:
+          - register
+            - r
+        server:
+          - login #BungeeCord server name
+        after:
+          - lobby #BungeeCord server name
+        time: 30
+        captcha: true
+        captcha-length: 6
+[...]
