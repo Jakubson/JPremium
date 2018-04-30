@@ -4,7 +4,7 @@ servers:
         motd: 'Lobby server'
         address: localhost:25565
         restricted: false
-   register: #BungeeCord server name
+    register: #BungeeCord server name
         motd: 'Login server'
         address: localhost:25566
         restricted: false
