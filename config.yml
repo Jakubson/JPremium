@@ -55,13 +55,15 @@ messages:
     max-ip-accounts: '&c&lError! &cYour ip address has already been registered with the maximum number of accounts!'
     max-connections: '&c&lError! &cToo many players want to connection to the server now! Please wait and try again!'
     website-register: '&a&lWebsite Register! &aPlease visit www.example.com/register to register your account!'
+    update: '&a&lJPremium update! &aA new version of plugin! Download now from https://www.spigotmc.org/resources/jpremium.27766/'
+    server-is-null: '&c&lError! &cServer is null! More informations: https://bit.ly/2FqEYTP'
     premium:
         login:
             fadeIn: 1
             stay: 3
             fadeOut: 1
             title: '&a&lWelcome %PLAYER_NAME%!'
-            subtitle: '&aYou signed the premium account!'
+            subtitle: '&aYou has logged by premium account!'
             chat: ''
     nonpremium:
         login:
@@ -77,7 +79,7 @@ messages:
                 stay: 3
                 fadeOut: 1
                 title: '&a&lWelcome %PLAYER_NAME%!'
-                subtitle: '&aYou signed the non-premium account!'
+                subtitle: '&aYou has logged by non-premium account!'
                 chat: ''
             error:
                 timeout: '&c&lTimeout! &cJoin to the server and try again!'
@@ -99,7 +101,7 @@ messages:
                 stay: 3
                 fadeOut: 1
                 title: '&a&lWelcome %PLAYER_NAME%!'
-                subtitle: '&aYou signed the non-premium account!'
+                subtitle: '&aYou has logged by non-premium account!'
                 chat: ''
             captcha: '&eYour captcha is &6%CAPTCHA%'
             error:
