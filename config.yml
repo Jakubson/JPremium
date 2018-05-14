@@ -39,6 +39,12 @@ settings:
             - lobby1
             - lobby2
         time: 30
+        password-min-length: 5
+        password-max-length: 20
+        bad-passwords:
+            - 12345
+            - qwerty
+            - abcdef
         captcha: true
         captcha-length: 6
     change-password:
@@ -49,6 +55,23 @@ settings:
         commands:
             - unregister
             - unreg
+    # Below is admin commands
+    jregister:
+        commands:
+            - jregister
+            - jreg
+    junregister:
+        commands:
+            - junregister
+            - junreg
+    jchange-password:
+        commands:
+            - jchangepassword
+            - jchpass
+    jverify:
+        commands:
+            - jverify
+            - jver
 messages:
     reload: '&a&lServer reload! &aJoin again!'
     servers-not-responsing: '&c&lError! &cAuthentication servers do not respond, we can not verify your account!'
@@ -108,6 +131,9 @@ messages:
                 timeout: '&c&lTimeout! &cJoin to the server and try again!'
                 registered: '&c&lRegistered! &cYou are already registered!'
                 enter-passwords: '&c&lInvalid arguments! &cEnter password, re-password, captcha and try again!'
+                password-too-short: '&c&lInvalid password! &cEnter longer password!'
+                password-too-long: '&c&lInvalid password! &cEnter shorter password!'
+                password-bad: '&c&lInvalid password! &cEnter better password!'
                 passwords-same: '&c&lInvalid passwords! &cPassword are not same!'
                 incorrect-captcha: '&c&lIncorrect captcha! &cEnter correct captcha and try again!'
         change-password:
