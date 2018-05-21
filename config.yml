@@ -14,8 +14,7 @@ settings:
     login-system: true 
     max-ip-accounts: 2
     max-connections: 15
-    website-register: false
-    users-synchronization: 0
+    registration-type: SERVER
     switch-server-timeout: 200
     login:
         commands:
@@ -41,6 +40,7 @@ settings:
         time: 30
         password-min-length: 5
         password-max-length: 20
+        case-sensitive-bad-passwords: true
         bad-passwords:
             - 12345
             - qwerty
@@ -87,7 +87,13 @@ messages:
             fadeOut: 1
             title: '&a&lWelcome %PLAYER_NAME%!'
             subtitle: '&aYou has logged by premium account!'
-            chat: ''
+            header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+            footer: '%NEW_LINE%&aYou has logged by premium account!%NEW_LINE%'
+            chat:
+              - '&f '
+              - '&a&lWelcome %PLAYER_NAME%!'
+              - '&aYou has logged by premium account!'
+              - '&f '
     nonpremium:
         login:
             before:
@@ -96,14 +102,22 @@ messages:
                 fadeOut: 1
                 title: '&e&lPlease login using:'
                 subtitle: '&6/login <password>'
-                chat: ''
+                header: '%NEW_LINE%&e&lPlease login using:%NEW_LINE%'
+                footer: '%NEW_LINE%&6/login <password>%NEW_LINE%'
+                chat: []
             after:
                 fadeIn: 1
                 stay: 3
                 fadeOut: 1
                 title: '&a&lWelcome %PLAYER_NAME%!'
                 subtitle: '&aYou has logged by non-premium account!'
-                chat: ''
+                header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+                footer: '%NEW_LINE%&aYou has logged by non-premium account!%NEW_LINE%'
+                chat:
+                  - '&f '
+                  - '&a&lWelcome %PLAYER_NAME%!'
+                  - '&aYou has logged by non-premium account!'
+                  - '&f '
             error:
                 timeout: '&c&lTimeout! &cJoin to the server and try again!'
                 registered: '&c&lRegistered! &cYou must registered to login!'
@@ -118,14 +132,22 @@ messages:
                 fadeOut: 1
                 title: '&e&lPlease register using:'
                 subtitle: '&6/register <password> <re-password> <captcha>'
-                chat: ''
+                header: '%NEW_LINE%&e&lPlease register using:%NEW_LINE%'
+                footer: '%NEW_LINE%&6/register <password> <re-password> <captcha>%NEW_LINE%'
+                chat: []
             after:
                 fadeIn: 1
                 stay: 3
                 fadeOut: 1
                 title: '&a&lWelcome %PLAYER_NAME%!'
                 subtitle: '&aYou has logged by non-premium account!'
-                chat: ''
+                header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+                footer: '%NEW_LINE%&aYou has logged by non-premium account!%NEW_LINE%'
+                chat:
+                  - '&f '
+                  - '&a&lWelcome %PLAYER_NAME%!'
+                  - '&aYou has logged by non-premium account!'
+                  - '&f '
             captcha: '&eYour captcha is &6%CAPTCHA%'
             error:
                 timeout: '&c&lTimeout! &cJoin to the server and try again!'
@@ -143,7 +165,7 @@ messages:
                 fadeOut: 1
                 title: '&a&lSuccessful!'
                 subtitle: '&aYou password has been changed!'
-                chat: ''
+                chat: []
             error:
                 registred: '&c&lRegistered! &cYou are not registered!'
                 logged: '&c&lLogged! &cYou are not logged!'
