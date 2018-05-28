@@ -14,8 +14,14 @@ settings:
     login-system: true 
     max-ip-accounts: 2
     max-connections: 15
+    cache-connections: true
     registration-type: SERVER
     switch-server-timeout: 200
+    allow-address:
+      - 127.0.0.1
+      - localhost
+      - example.com
+      - mc.example.com
     login:
         commands:
             - login
@@ -80,6 +86,7 @@ messages:
     website-register: '&a&lWebsite Register! &aPlease visit www.example.com/register to register your account!'
     update: '&a&lJPremium update! &aA new version of plugin! Download now from https://www.spigotmc.org/resources/jpremium.27766/'
     server-is-null: '&c&lError! &cServer is null! More informations: https://bit.ly/2FqEYTP'
+    disallow-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
     premium:
         login:
             fadeIn: 1
