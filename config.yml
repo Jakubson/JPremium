@@ -5,7 +5,8 @@ settings:
         user: root
         password: pass
         database: jpremium
-        table: users
+        first-table: non_premium_users
+        second-table: premium_users
     ## !!! NOT RECOMMEND !!!
     ## !!! THE AUTHOR OF PLUGIN IS NOT RESPONSIBLE FOR ERRORS CAUSED BY DISABLING THIS OPTION !!!
     ## If 'false':
@@ -14,9 +15,11 @@ settings:
     login-system: true 
     max-ip-accounts: 2
     max-connections: 15
+    default-language: en
     cache-connections: true
     registration-type: SERVER
     switch-server-timeout: 200
+    case-sensitive-allow-address: true
     allow-address:
       - 127.0.0.1
       - localhost
@@ -53,177 +56,221 @@ settings:
             - abcdef
         captcha: true
         captcha-length: 6
-    change-password:
-        commands:
-            - changepassword
-            - change
     unregister:
         commands:
             - unregister
             - unreg
-    # Below is admin commands
-    jregister:
+    change-password:
+        commands:
+            - changepassword
+            - change
+    change-language:
+        commands:
+            - language
+            - lang
+    # Below are admin commands
+    jpremium-register:
         commands:
             - jregister
             - jreg
-    junregister:
+    jpremium-unregister:
         commands:
             - junregister
             - junreg
-    jchange-password:
+    jpremium-change-password:
         commands:
             - jchangepassword
             - jchpass
-    jverify:
+    jpremium-language:
+        commands:
+            - jlanguage
+            - jlang
+    jpremium-verify:
         commands:
             - jverify
             - jver
 messages:
-    reload: '&a&lServer reload! &aJoin again!'
-    servers-not-responsing: '&c&lError! &cAuthentication servers do not respond, we can not verify your account!'
-    max-ip-accounts: '&c&lError! &cYour ip address has already been registered with the maximum number of accounts!'
-    max-connections: '&c&lError! &cToo many players want to connection to the server now! Please wait and try again!'
-    website-register: '&a&lWebsite Register! &aPlease visit www.example.com/register to register your account!'
-    update: '&a&lJPremium update! &aA new version of plugin! Download now from https://www.spigotmc.org/resources/jpremium.27766/'
-    server-is-null: '&c&lError! &cServer is null! More informations: https://bit.ly/2FqEYTP'
-    disallow-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
-    premium:
-        login:
-            fadeIn: 1
-            stay: 3
-            fadeOut: 1
-            title: '&a&lWelcome %PLAYER_NAME%!'
-            subtitle: '&aYou has logged by premium account!'
-            header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-            footer: '%NEW_LINE%&aYou has logged by premium account!%NEW_LINE%'
-            chat:
-              - '&f '
-              - '&a&lWelcome %PLAYER_NAME%!'
-              - '&aYou has logged by premium account!'
-              - '&f '
-    nonpremium:
-        login:
-            before:
-                fadeIn: 1
-                stay: 18
-                fadeOut: 1
-                title: '&e&lPlease login using:'
-                subtitle: '&6/login <password>'
-                header: '%NEW_LINE%&e&lPlease login using:%NEW_LINE%'
-                footer: '%NEW_LINE%&6/login <password>%NEW_LINE%'
-                chat: []
-            after:
+    en:
+        reload: '&a&lServer reload! &aJoin again!'
+        servers-not-responsing: '&c&lError! &cAuthentication servers do not respond, we can not verify your account!'
+        max-ip-accounts: '&c&lError! &cYour ip address has already been registered with the maximum number of accounts!'
+        max-connections: '&c&lError! &cToo many players want to connection to the server now! Please wait and try again!'
+        website-register: '&a&lWebsite Register! &aPlease visit www.example.com/register to register your account!'
+        update: '&a&lJPremium update! &aA new version of plugin! Download now from https://www.spigotmc.org/resources/jpremium.27766/'
+        server-is-null: '&c&lError! &cServer is null! More informations: https://bit.ly/2FqEYTP'
+        disallow-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
+        premium:
+            login:
                 fadeIn: 1
                 stay: 3
                 fadeOut: 1
                 title: '&a&lWelcome %PLAYER_NAME%!'
-                subtitle: '&aYou has logged by non-premium account!'
+                subtitle: '&aYou has logged by premium account!'
                 header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-                footer: '%NEW_LINE%&aYou has logged by non-premium account!%NEW_LINE%'
+                footer: '%NEW_LINE%&aYou has logged by premium account!%NEW_LINE%'
                 chat:
                   - '&f '
                   - '&a&lWelcome %PLAYER_NAME%!'
-                  - '&aYou has logged by non-premium account!'
+                  - '&aYou has logged by premium account!'
                   - '&f '
-            error:
-                timeout: '&c&lTimeout! &cJoin to the server and try again!'
-                registered: '&c&lRegistered! &cYou must registered to login!'
-                logged: '&c&lLogged! &cYou are already logged!'
-                enter-password: '&c&lInvalid arguments! &cEnter password and try again!'
-                incorrect-password: '&c&lIncorrect password! &cEnter correct password and try again!'
-                incorrect-nickname: '&c&lIncorrect nickname! &cLogin with %PLAYER_CORRECT_NAME% player name, not with %PLAYER_NAME%!'
-        register:
-            before:
-                fadeIn: 1
-                stay: 28
-                fadeOut: 1
-                title: '&e&lPlease register using:'
-                subtitle: '&6/register <password> <re-password> <captcha>'
-                header: '%NEW_LINE%&e&lPlease register using:%NEW_LINE%'
-                footer: '%NEW_LINE%&6/register <password> <re-password> <captcha>%NEW_LINE%'
-                chat: []
-            after:
-                fadeIn: 1
-                stay: 3
-                fadeOut: 1
-                title: '&a&lWelcome %PLAYER_NAME%!'
-                subtitle: '&aYou has logged by non-premium account!'
-                header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-                footer: '%NEW_LINE%&aYou has logged by non-premium account!%NEW_LINE%'
-                chat:
-                  - '&f '
-                  - '&a&lWelcome %PLAYER_NAME%!'
-                  - '&aYou has logged by non-premium account!'
-                  - '&f '
-            captcha: '&eYour captcha is &6%CAPTCHA%'
-            error:
-                timeout: '&c&lTimeout! &cJoin to the server and try again!'
-                registered: '&c&lRegistered! &cYou are already registered!'
-                enter-passwords: '&c&lInvalid arguments! &cEnter password, re-password, captcha and try again!'
-                password-too-short: '&c&lInvalid password! &cEnter longer password!'
-                password-too-long: '&c&lInvalid password! &cEnter shorter password!'
-                password-bad: '&c&lInvalid password! &cEnter better password!'
-                passwords-same: '&c&lInvalid passwords! &cPassword are not same!'
-                incorrect-captcha: '&c&lIncorrect captcha! &cEnter correct captcha and try again!'
-        change-password:
-            after:
-                fadeIn: 1
-                stay: 3
-                fadeOut: 1
-                title: '&a&lSuccessful!'
-                subtitle: '&aYou password has been changed!'
-                chat: []
-            error:
-                registred: '&c&lRegistered! &cYou are not registered!'
-                logged: '&c&lLogged! &cYou are not logged!'
-                premium: '&c&lYou are Premium &cYou can not change password for premium account!'
-                enter-passwords: '&c&lInvalid arguments! &cEnter old password, password, re-password and try again!'
-                incorrect-old-password: '&c&lInvalid old password! &cEnter old password na try again!'
-                passwords-same: '&c&lInvalid passwords! &cPassword are not same!'
-        unregister:
-            after: '&a&lUnregistered! &aYou have been unregistered!'
-            error:
-                registered: '&c&lRegistered! &cYou are not registered!'
-                logged: '&c&lLogged! &cYou are not logged!'
-                premium: '&c&lYou are Premium &cYou can not unregister premium account!'
-                enter-password: '&c&lInvalid arguments! &cEnter password and try again!'
-                incorrect-password: '&c&lIncorrect password! &cEnter correct password and try again!'
-        jpremium-register:
-            after: '&a&lRegistered! &aYou have been registered new player!'
-            error:
-                registered: '&c&lRegistered! &cYou are not registered!'
-                logged: '&c&lLogged! &cYou are not logged!'
-                enter-nickname-and-password: '&c&lInvalid arguments! &cEnter player nickname and password!'
-                user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
-                user-is-exist: '&c&lUser is exist! &cThis user is already exist!'
-        jpremium-change-password:
-            after:
-                user-kick: '&a&lPassword Changed! &aYour password has been changed!'
-                password-changed: '&a&lPassword Changed! &aPassword has been changed!'
-            error:
-                registered: '&c&lRegistered! &cYou are not registered!'
-                logged: '&c&lLogged! &cYou are not logged!'
-                enter-nickname-and-password: '&c&lInvalid arguments! &cEnter player nickname and password!'
-                user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist!'
-                user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
-                user-is-not-registered: '&c&lUser is not registered! &cThis user is not registered!'
-        jpremium-unregister:
-            after:
-                user-kick: '&a&lUnregistered &aYou have been unregistered!'
-                unregistered: '&a&lUnregistered &aUser has been unregistered!'
-            error:
-                registered: '&c&lRegistered! &cYou are not registered!'
-                logged: '&c&lLogged! &cYou are not logged!'
-                enter-nickname: '&c&lInvalid arguments! &cEnter player nickname!'
-                user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist!'
-                user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
-                user-is-not-registered: '&c&lUser is not registered! &cThis user is not registered!'
-        jpremium-verify:
-              after:
-                  premium: '&a&lPremium &aThis user is premium!'
-                  non-premium: '&a&lNon-Premium &aThis user is non-premium!'
-              error:
-                  registered: '&c&lRegistered! &cYou are not registered!'
-                  logged: '&c&lLogged! &cYou are not logged!'
-                  enter-nickname: '&c&lInvalid arguments! &cEnter player nickname!'
-                  user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist in JPremium database!'
+        nonpremium:
+            login:
+                before:
+                    fadeIn: 1
+                    stay: 18
+                    fadeOut: 1
+                    title: '&e&lPlease login using:'
+                    subtitle: '&6/login <password>'
+                    header: '%NEW_LINE%&e&lPlease login using:%NEW_LINE%'
+                    footer: '%NEW_LINE%&6/login <password>%NEW_LINE%'
+                    chat: []
+                after:
+                    fadeIn: 1
+                    stay: 3
+                    fadeOut: 1
+                    title: '&a&lWelcome %PLAYER_NAME%!'
+                    subtitle: '&aYou has logged by non-premium account!'
+                    header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+                    footer: '%NEW_LINE%&aYou has logged by non-premium account!%NEW_LINE%'
+                    chat:
+                      - '&f '
+                      - '&a&lWelcome %PLAYER_NAME%!'
+                      - '&aYou has logged by non-premium account!'
+                      - '&f '
+                error:
+                    timeout: '&c&lTimeout! &cJoin to the server and try again!'
+                    registered: '&c&lRegistered! &cYou must registered to login!'
+                    logged: '&c&lLogged! &cYou are already logged!'
+                    enter-password: '&c&lInvalid arguments! &cEnter password and try again!'
+                    incorrect-password: '&c&lIncorrect password! &cEnter correct password and try again!'
+                    incorrect-nickname: '&c&lIncorrect nickname! &cLogin with %PLAYER_CORRECT_NAME% player name, not with %PLAYER_NAME%!'
+            register:
+                before:
+                    fadeIn: 1
+                    stay: 28
+                    fadeOut: 1
+                    title: '&e&lPlease register using:'
+                    subtitle: '&6/register <password> <re-password> <captcha>'
+                    header: '%NEW_LINE%&e&lPlease register using:%NEW_LINE%'
+                    footer: '%NEW_LINE%&6/register <password> <re-password> <captcha>%NEW_LINE%'
+                    chat: []
+                after:
+                    fadeIn: 1
+                    stay: 3
+                    fadeOut: 1
+                    title: '&a&lWelcome %PLAYER_NAME%!'
+                    subtitle: '&aYou has logged by non-premium account!'
+                    header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+                    footer: '%NEW_LINE%&aYou has logged by non-premium account!%NEW_LINE%'
+                    chat:
+                      - '&f '
+                      - '&a&lWelcome %PLAYER_NAME%!'
+                      - '&aYou has logged by non-premium account!'
+                      - '&f '
+                captcha: '&eYour captcha is &6%CAPTCHA%'
+                error:
+                    timeout: '&c&lTimeout! &cJoin to the server and try again!'
+                    registered: '&c&lRegistered! &cYou are already registered!'
+                    enter-passwords: '&c&lInvalid arguments! &cEnter password, re-password, captcha and try again!'
+                    password-too-short: '&c&lInvalid password! &cEnter longer password!'
+                    password-too-long: '&c&lInvalid password! &cEnter shorter password!'
+                    password-bad: '&c&lInvalid password! &cEnter better password!'
+                    passwords-same: '&c&lInvalid passwords! &cPassword are not same!'
+                    incorrect-captcha: '&c&lIncorrect captcha! &cEnter correct captcha and try again!'
+            unregister:
+                after: '&a&lUnregistered! &aYou have been unregistered!'
+                error:
+                    registered: '&c&lRegistered! &cYou are not registered!'
+                    logged: '&c&lLogged! &cYou are not logged!'
+                    premium: '&c&lYou are Premium &cYou can not unregister premium account!'
+                    enter-password: '&c&lInvalid arguments! &cEnter password and try again!'
+                    incorrect-password: '&c&lIncorrect password! &cEnter correct password and try again!'
+            change-password:
+                after:
+                    fadeIn: 1
+                    stay: 3
+                    fadeOut: 1
+                    title: '&a&lSuccessful!'
+                    subtitle: '&aYour password has been changed!'
+                    header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+                    footer: '%NEW_LINE%&aYour password has been changed!%NEW_LINE%'
+                    chat: []
+                error:
+                    registred: '&c&lRegistered! &cYou are not registered!'
+                    logged: '&c&lLogged! &cYou are not logged!'
+                    premium: '&c&lYou are Premium &cYou can not change password for premium account!'
+                    enter-passwords: '&c&lInvalid arguments! &cEnter old password, password, re-password and try again!'
+                    incorrect-old-password: '&c&lInvalid old password! &cEnter old password na try again!'
+                    passwords-same: '&c&lInvalid passwords! &cPassword are not same!'
+            language:
+                after:
+                    fadeIn: 1
+                    stay: 3
+                    fadeOut: 1
+                    title: '&a&lSuccessful!'
+                    subtitle: '&aYour language has been changed!'
+                    header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+                    footer: '%NEW_LINE%&aYour language has been changed!%NEW_LINE%'
+                    chat: []
+                error:
+                    registred: '&c&lRegistered! &cYou are not registered!'
+                    logged: '&c&lLogged! &cYou are not logged!'
+                    enter-language: '&c&lInvalid arguments! &cEnter language!'
+                    incorrect-language: '&c&lInvalid language! &cEnter correct language!'
+            jpremium-register:
+                after: '&a&lRegistered! &aYou have been registered new player!'
+                error:
+                    registered: '&c&lRegistered! &cYou are not registered!'
+                    logged: '&c&lLogged! &cYou are not logged!'
+                    enter-nickname-and-password: '&c&lInvalid arguments! &cEnter player nickname and password!'
+                    user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
+                    user-is-exist: '&c&lUser is exist! &cThis user is already exist!'
+            jpremium-unregister:
+                after:
+                    user-kick: '&a&lUnregistered &aYou have been unregistered!'
+                    unregistered: '&a&lUnregistered &aUser has been unregistered!'
+                error:
+                    registered: '&c&lRegistered! &cYou are not registered!'
+                    logged: '&c&lLogged! &cYou are not logged!'
+                    enter-nickname: '&c&lInvalid arguments! &cEnter player nickname!'
+                    user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist!'
+                    user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
+                    user-is-not-registered: '&c&lUser is not registered! &cThis user is not registered!'
+            jpremium-change-password:
+                after:
+                    user-kick: '&a&lPassword Changed! &aYour password has been changed!'
+                    password-changed: '&a&lPassword Changed! &aPassword has been changed!'
+                error:
+                    registered: '&c&lRegistered! &cYou are not registered!'
+                    logged: '&c&lLogged! &cYou are not logged!'
+                    enter-nickname-and-password: '&c&lInvalid arguments! &cEnter player nickname and password!'
+                    user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist!'
+                    user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
+                    user-is-not-registered: '&c&lUser is not registered! &cThis user is not registered!'
+            jpremium-change-language:
+                after:
+                    user-changed:
+                        fadeIn: 1
+                        stay: 3
+                        fadeOut: 1
+                        title: '&a&lSuccessful!'
+                        subtitle: '&aYour language has been changed!'
+                        header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+                        footer: '%NEW_LINE%&aYour language has been changed!%NEW_LINE%'
+                        chat: []
+                    language-changed: '&a&lLanguage Changed! &aLanguage has been changed!'
+                error:
+                    registred: '&c&lRegistered! &cYou are not registered!'
+                    logged: '&c&lLogged! &cYou are not logged!'
+                    enter-nickname-and-language: '&c&lInvalid arguments! &cEnter nickname and language!'
+                    user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist!'
+                    incorrect-language: '&c&lInvalid language! &cEnter correct language!'
+            jpremium-verify:
+                  after:
+                      premium: '&a&lPremium &aThis user is premium!'
+                      non-premium: '&a&lNon-Premium &aThis user is non-premium!'
+                  error:
+                      registered: '&c&lRegistered! &cYou are not registered!'
+                      logged: '&c&lLogged! &cYou are not logged!'
+                      enter-nickname: '&c&lInvalid arguments! &cEnter player nickname!'
+                      user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist in JPremium database!'
