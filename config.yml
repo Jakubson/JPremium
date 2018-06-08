@@ -81,7 +81,7 @@ settings:
         commands:
             - jchangepassword
             - jchpass
-    jpremium-language:
+    jpremium-change-language:
         commands:
             - jlanguage
             - jlang
@@ -92,13 +92,14 @@ settings:
 messages:
     en:
         reload: '&a&lServer reload! &aJoin again!'
-        servers-not-responsing: '&c&lError! &cAuthentication servers do not respond, we can not verify your account!'
+        servers-not-responding: '&c&lError! &cAuthentication servers do not respond, we can not verify your account!'
         max-ip-accounts: '&c&lError! &cYour ip address has already been registered with the maximum number of accounts!'
         max-connections: '&c&lError! &cToo many players want to connection to the server now! Please wait and try again!'
         website-register: '&a&lWebsite Register! &aPlease visit www.example.com/register to register your account!'
         update: '&a&lJPremium update! &aA new version of plugin! Download now from https://www.spigotmc.org/resources/jpremium.27766/'
         server-is-null: '&c&lError! &cServer is null! More informations: https://bit.ly/2FqEYTP'
         disallow-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
+        boss-bar: '&a&lHello %PLAYER_NAME%, You are playing on the &6&lEXAMPLE.COM&a&l!'
         premium:
             login:
                 fadeIn: 1
