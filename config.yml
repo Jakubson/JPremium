@@ -25,6 +25,8 @@ settings:
       - localhost
       - example.com
       - mc.example.com
+    staff-address:
+      - admin.example.com
     login:
         commands:
             - login
@@ -36,6 +38,7 @@ settings:
             - lobby1
             - lobby2
         time: 20
+        kick-when-bad-password: false
     register:
         commands:
             - register
@@ -99,6 +102,7 @@ messages:
         update: '&a&lJPremium update! &aA new version of plugin! Download now from https://www.spigotmc.org/resources/jpremium.27766/'
         server-is-null: '&c&lError! &cServer is null! More informations: https://bit.ly/2FqEYTP'
         disallow-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
+        disallow-staff-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
         boss-bar: '&a&lHello %PLAYER_NAME%, You are playing on the &6&lEXAMPLE.COM&a&l!'
         premium:
             login:
