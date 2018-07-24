@@ -20,6 +20,7 @@ settings:
     registration-type: SERVER
     switch-server-timeout: 200
     case-sensitive-allow-address: true
+    enable-check-address: true
     allow-address:
       - 127.0.0.1
       - localhost
