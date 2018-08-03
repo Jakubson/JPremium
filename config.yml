@@ -64,6 +64,10 @@ settings:
         commands:
             - unregister
             - unreg
+    auto-login:
+        commands:
+            - autologin
+            - al
     change-password:
         commands:
             - changepassword
@@ -106,7 +110,7 @@ messages:
         disallow-staff-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
         boss-bar: '&a&lHello %PLAYER_NAME%, You are playing on the &6&lEXAMPLE.COM&a&l!'
         premium:
-            login:
+            premium:
                 fadeIn: 1
                 stay: 3
                 fadeOut: 1
@@ -119,6 +123,29 @@ messages:
                   - '&a&lWelcome %PLAYER_NAME%!'
                   - '&aYou has logged by premium account!'
                   - '&f '
+            password:
+                before:
+                    fadeIn: 1
+                    stay: 18
+                    fadeOut: 1
+                    title: '&e&lPlease login using:'
+                    subtitle: '&6/login <password>'
+                    header: '%NEW_LINE%&e&lPlease login using:%NEW_LINE%'
+                    footer: '%NEW_LINE%&6/login <password>%NEW_LINE%'
+                    chat: []
+                after:
+                    fadeIn: 1
+                    stay: 3
+                    fadeOut: 1
+                    title: '&a&lWelcome %PLAYER_NAME%!'
+                    subtitle: '&aYou has logged by premium account using password!'
+                    header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+                    footer: '%NEW_LINE%&aYou has logged by premium account using password!%NEW_LINE%'
+                    chat:
+                      - '&f '
+                      - '&a&lWelcome %PLAYER_NAME%!'
+                      - '&aYou has logged by premium account using password!'
+                      - '&f '
         nonpremium:
             login:
                 before:
@@ -191,6 +218,33 @@ messages:
                     premium: '&c&lYou are Premium &cYou can not unregister premium account!'
                     enter-password: '&c&lInvalid arguments! &cEnter password and try again!'
                     incorrect-password: '&c&lIncorrect password! &cEnter correct password and try again!'
+            auto-login:
+                after:
+                    premium:
+                        fadeIn: 1
+                        stay: 3
+                        fadeOut: 1
+                        title: '&a&lSuccessful!'
+                        subtitle: '&aYou do not use password to login!'
+                        header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+                        footer: '%NEW_LINE%&aYou do not use password to login!%NEW_LINE%'
+                        chat: []
+                    password:
+                        fadeIn: 1
+                        stay: 3
+                        fadeOut: 1
+                        title: '&a&lSuccessful!'
+                        subtitle: '&aYou must use password to login!'
+                        header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+                        footer: '%NEW_LINE%&aYou must use password to login!%NEW_LINE%'
+                        chat: []
+                error:
+                    premium: '&c&lYou are not Premium &cYou can not auto login non-premium account!'
+                    enter-passwords: '&c&lInvalid arguments! &cEnter password, re-password and try again!'
+                    password-too-short: '&c&lInvalid password! &cEnter longer password!'
+                    password-too-long: '&c&lInvalid password! &cEnter shorter password!'
+                    password-bad: '&c&lInvalid password! &cEnter better password!'
+                    passwords-same: '&c&lInvalid passwords! &cPassword are not same!'
             change-password:
                 after:
                     fadeIn: 1
@@ -208,7 +262,7 @@ messages:
                     enter-passwords: '&c&lInvalid arguments! &cEnter old password, password, re-password and try again!'
                     incorrect-old-password: '&c&lInvalid old password! &cEnter old password na try again!'
                     passwords-same: '&c&lInvalid passwords! &cPassword are not same!'
-            language:
+            change-language:
                 after:
                     fadeIn: 1
                     stay: 3
