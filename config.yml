@@ -7,16 +7,16 @@ settings:
         database: jpremium
         first-table: non_premium_users
         second-table: premium_users
-    ## !!! NOT RECOMMEND !!!
-    ## !!! THE AUTHOR OF PLUGIN IS NOT RESPONSIBLE FOR ERRORS CAUSED BY DISABLING THIS OPTION !!!
-    ## If 'false':
+    ## If login system is disabled:
     ##  premium players connect to 'login after' server
-    ##  cracked player connect to 'login server' server without check registration
-    login-system: true 
+    ##  cracked players connect to 'login server' server without check registration
+    login-system: true
+    auto-login-premium: true
     max-ip-accounts: 2
     max-connections: 15
     default-language: en
     cache-connections: true
+    use-several-servers: true
     registration-type: SERVER
     switch-server-timeout: 200
     case-sensitive-allow-address: true
@@ -110,42 +110,18 @@ messages:
         disallow-staff-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
         boss-bar: '&a&lHello %PLAYER_NAME%, You are playing on the &6&lEXAMPLE.COM&a&l!'
         premium:
-            premium:
-                fadeIn: 1
-                stay: 3
-                fadeOut: 1
-                title: '&a&lWelcome %PLAYER_NAME%!'
-                subtitle: '&aYou has logged by premium account!'
-                header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-                footer: '%NEW_LINE%&aYou has logged by premium account!%NEW_LINE%'
-                chat:
-                  - '&f '
-                  - '&a&lWelcome %PLAYER_NAME%!'
-                  - '&aYou has logged by premium account!'
-                  - '&f '
-            password:
-                before:
-                    fadeIn: 1
-                    stay: 18
-                    fadeOut: 1
-                    title: '&e&lPlease login using:'
-                    subtitle: '&6/login <password>'
-                    header: '%NEW_LINE%&e&lPlease login using:%NEW_LINE%'
-                    footer: '%NEW_LINE%&6/login <password>%NEW_LINE%'
-                    chat: []
-                after:
-                    fadeIn: 1
-                    stay: 3
-                    fadeOut: 1
-                    title: '&a&lWelcome %PLAYER_NAME%!'
-                    subtitle: '&aYou has logged by premium account using password!'
-                    header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-                    footer: '%NEW_LINE%&aYou has logged by premium account using password!%NEW_LINE%'
-                    chat:
-                      - '&f '
-                      - '&a&lWelcome %PLAYER_NAME%!'
-                      - '&aYou has logged by premium account using password!'
-                      - '&f '
+            fadeIn: 1
+            stay: 3
+            fadeOut: 1
+            title: '&a&lWelcome %PLAYER_NAME%!'
+            subtitle: '&aYou has logged by premium account!'
+            header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
+            footer: '%NEW_LINE%&aYou has logged by premium account!%NEW_LINE%'
+            chat:
+              - '&f '
+              - '&a&lWelcome %PLAYER_NAME%!'
+              - '&aYou has logged by premium account!'
+              - '&f '
         nonpremium:
             login:
                 before:
@@ -201,6 +177,7 @@ messages:
                       - '&aYou has logged by non-premium account!'
                       - '&f '
                 captcha: '&eYour captcha is &6%CAPTCHA%'
+                premium: '&a&lDetected premium! &aIf you have premium launcher and want to auto login your account, please execute /autologin! &cDo not execute this command on the cracked launcher!'
                 error:
                     timeout: '&c&lTimeout! &cJoin to the server and try again!'
                     registered: '&c&lRegistered! &cYou are already registered!'
@@ -220,24 +197,8 @@ messages:
                     incorrect-password: '&c&lIncorrect password! &cEnter correct password and try again!'
             auto-login:
                 after:
-                    premium:
-                        fadeIn: 1
-                        stay: 3
-                        fadeOut: 1
-                        title: '&a&lSuccessful!'
-                        subtitle: '&aYou do not use password to login!'
-                        header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-                        footer: '%NEW_LINE%&aYou do not use password to login!%NEW_LINE%'
-                        chat: []
-                    password:
-                        fadeIn: 1
-                        stay: 3
-                        fadeOut: 1
-                        title: '&a&lSuccessful!'
-                        subtitle: '&aYou must use password to login!'
-                        header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-                        footer: '%NEW_LINE%&aYou must use password to login!%NEW_LINE%'
-                        chat: []
+                    premium: '&a&lAuto Login! &aYou do not need use password to login!'
+                    password: '&a&lAuto Login! &aYou need use password to login!'
                 error:
                     premium: '&c&lYou are not Premium &cYou can not auto login non-premium account!'
                     enter-passwords: '&c&lInvalid arguments! &cEnter password, re-password and try again!'
