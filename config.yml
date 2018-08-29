@@ -3,109 +3,102 @@ settings:
         host: 127.0.0.1
         port: 3306
         user: root
-        password: pass
+        password: password
         database: jpremium
         first-table: non_premium_users
         second-table: premium_users
-    ## If login system is disabled:
-    ##  premium players connect to 'login after' server
-    ##  cracked players connect to 'login server' server without check registration
-    login-system: true
-    auto-login-premium: true
-    max-ip-accounts: 2
-    max-connections: 15
-    default-language: en
-    cache-connections: true
-    use-several-servers: true
-    registration-type: SERVER
-    switch-server-timeout: 200
-    case-sensitive-allow-address: true
-    enable-check-address: true
-    allow-address:
+    use-proxy: false # Whether to use proxies to connect with Mojang servers. If you have server where is more than 500 players, I recommend turn on this.
+    max-ip-accounts: 2 # How many non-premium players can register with this same ip address.
+    max-connections: 15 # How many players can join to the server within 30 seconds.
+    fixed-unique-id: true # Whether to use random unique id for player.
+    default-language: en # Default language from messages section.
+    registration-type: SERVER # Whether to allow register non-premium players on the server, website or both sites.
+    auto-login-premium: true # Whether to auto login new premium players.
+    switch-server-timeout: 200 # How many the plugin must wait in order to connect player with another server. Change this value only when author of JPremium ask for it.
+    enable-allow-address: false # Whether to check address which player using to connect to the server.
+    case-sensitive-allow-address: true # Whether to check case sensitive of allow addresses.
+    allow-addresses: # Using only these addresses player can join to the server.
       - 127.0.0.1
       - localhost
       - example.com
       - mc.example.com
-    staff-address:
+    staff-addresses: # Using only these addresses player with 'jpremium.staff' permission can join to the server.
       - admin.example.com
     login:
-        commands:
+        commands: # Login command aliases. The first command is main command.
             - login
             - l
-        server:
+        server: # Server names to which non-premium player connect in order to login.
             - login1
             - login2
-        after:
+        after: # Server names to which non-premium and premium player connect after login.
             - lobby1
             - lobby2
-        time: 20
-        kick-when-bad-password: false
+        time: 20 # How many time has non-premium player to login.
+        kick-when-bad-password: false # Whether to kick non-premium player when he enter wrong password.
     register:
-        commands:
+        commands: # Register command aliases. The first command is main command.
             - register
             - r
-        server:
+        server: # Server names to which non-premium player connect in order to register.
             - login1
             - login2
-        after:
+        after: # Server names to which non-premium player connect after register.
             - lobby1
             - lobby2
-        time: 30
-        password-min-length: 5
-        password-max-length: 20
-        case-sensitive-bad-passwords: true
-        bad-passwords:
+        time: 60 # How many time has non-premium player to register.
+        password-min-length: 5 # What is the minimum number of characters in the password
+        password-max-length: 30 # What is the maximal number of characters in the password
+        case-sensitive-bad-passwords: true # Whether to check case sensitive of bad passwords.
+        bad-passwords: # The passwords are considered as unsafe and non-premium player cannot set they as password.
             - 12345
             - qwerty
             - abcdef
-        captcha: true
-        captcha-length: 6
+        captcha: true # Whether to non-premium player must enter captcha code during register.
+        captcha-length: 6 # The length of captcha code. Maximal length is 32.
     unregister:
-        commands:
+        commands: # Unregister command aliases.
             - unregister
             - unreg
     auto-login:
-        commands:
+        commands: # Auto login command aliases.
             - autologin
             - al
     change-password:
-        commands:
+        commands: # Change password command aliases.
             - changepassword
             - change
     change-language:
-        commands:
+        commands: # Change language command aliases.
             - language
             - lang
-    # Below are admin commands
     jpremium-register:
-        commands:
+        commands: # Register admin command aliases.
             - jregister
             - jreg
     jpremium-unregister:
-        commands:
+        commands: # Unregister admin command aliases.
             - junregister
             - junreg
     jpremium-change-password:
-        commands:
+        commands: # Change password admin command aliases.
             - jchangepassword
             - jchpass
     jpremium-change-language:
-        commands:
+        commands: # Change language admin command aliases.
             - jlanguage
             - jlang
     jpremium-verify:
-        commands:
+        commands: # Verify admin command aliases.
             - jverify
             - jver
 messages:
     en:
-        reload: '&a&lServer reload! &aJoin again!'
         servers-not-responding: '&c&lError! &cAuthentication servers do not respond, we can not verify your account!'
         max-ip-accounts: '&c&lError! &cYour ip address has already been registered with the maximum number of accounts!'
         max-connections: '&c&lError! &cToo many players want to connection to the server now! Please wait and try again!'
-        website-register: '&a&lWebsite Register! &aPlease visit www.example.com/register to register your account!'
+        website-registration: '&a&lWebsite registration! &aPlease visit www.example.com/register to register your account!'
         update: '&a&lJPremium update! &aA new version of plugin! Download now from https://www.spigotmc.org/resources/jpremium.27766/'
-        server-is-null: '&c&lError! &cServer is null! More informations: https://bit.ly/2FqEYTP'
         disallow-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
         disallow-staff-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
         boss-bar: '&a&lHello %PLAYER_NAME%, You are playing on the &6&lEXAMPLE.COM&a&l!'
@@ -115,14 +108,20 @@ messages:
             fadeOut: 1
             title: '&a&lWelcome %PLAYER_NAME%!'
             subtitle: '&aYou has logged by premium account!'
-            header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-            footer: '%NEW_LINE%&aYou has logged by premium account!%NEW_LINE%'
-            chat:
-              - '&f '
-              - '&a&lWelcome %PLAYER_NAME%!'
-              - '&aYou has logged by premium account!'
-              - '&f '
-        nonpremium:
+            header: |-
+                &f
+                &a&lWelcome %PLAYER_NAME%!
+                &f
+            footer: |-
+                &f
+                &aYou has logged by premium account!
+                &f
+            chat: |-
+                &f
+                &a&lWelcome %PLAYER_NAME%!
+                &aYou has logged by premium account!
+                &f
+        non-premium:
             login:
                 before:
                     fadeIn: 1
@@ -130,22 +129,34 @@ messages:
                     fadeOut: 1
                     title: '&e&lPlease login using:'
                     subtitle: '&6/login <password>'
-                    header: '%NEW_LINE%&e&lPlease login using:%NEW_LINE%'
-                    footer: '%NEW_LINE%&6/login <password>%NEW_LINE%'
-                    chat: []
+                    header: |-
+                        &f
+                        &e&lPlease login using:
+                        &f
+                    footer: |-
+                        &f
+                        &6/login <password>
+                        &f
+                    chat: ''
                 after:
                     fadeIn: 1
                     stay: 3
                     fadeOut: 1
                     title: '&a&lWelcome %PLAYER_NAME%!'
                     subtitle: '&aYou has logged by non-premium account!'
-                    header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-                    footer: '%NEW_LINE%&aYou has logged by non-premium account!%NEW_LINE%'
-                    chat:
-                      - '&f '
-                      - '&a&lWelcome %PLAYER_NAME%!'
-                      - '&aYou has logged by non-premium account!'
-                      - '&f '
+                    header: |-
+                        &f
+                        &a&lWelcome %PLAYER_NAME%!
+                        &f
+                    footer: |-
+                        &f
+                        &aYou has logged by non-premium account!
+                        &f
+                    chat: |-
+                        &f
+                        &a&lWelcome %PLAYER_NAME%!
+                        &aYou has logged by non-premium account!
+                        &f
                 error:
                     timeout: '&c&lTimeout! &cJoin to the server and try again!'
                     registered: '&c&lRegistered! &cYou must registered to login!'
@@ -160,22 +171,34 @@ messages:
                     fadeOut: 1
                     title: '&e&lPlease register using:'
                     subtitle: '&6/register <password> <re-password> <captcha>'
-                    header: '%NEW_LINE%&e&lPlease register using:%NEW_LINE%'
-                    footer: '%NEW_LINE%&6/register <password> <re-password> <captcha>%NEW_LINE%'
-                    chat: []
+                    header: |-
+                        &f
+                        &e&lPlease register using:
+                        &f
+                    footer: |-
+                        &f
+                        &6/register <password> <re-password> <captcha>
+                        &f
+                    chat: ''
                 after:
                     fadeIn: 1
                     stay: 3
                     fadeOut: 1
                     title: '&a&lWelcome %PLAYER_NAME%!'
                     subtitle: '&aYou has logged by non-premium account!'
-                    header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-                    footer: '%NEW_LINE%&aYou has logged by non-premium account!%NEW_LINE%'
-                    chat:
-                      - '&f '
-                      - '&a&lWelcome %PLAYER_NAME%!'
-                      - '&aYou has logged by non-premium account!'
-                      - '&f '
+                    header: |-
+                        &f
+                        &a&lWelcome %PLAYER_NAME%!
+                        &f
+                    footer: |-
+                        &f
+                        &aYou has logged by non-premium account!
+                        &f
+                    chat: |-
+                        &f
+                        &a&lWelcome %PLAYER_NAME%!
+                        &aYou has logged by non-premium account!
+                        &f
                 captcha: '&eYour captcha is &6%CAPTCHA%'
                 premium: '&a&lDetected premium! &aIf you have premium launcher and want to auto login your account, please execute /autologin! &cDo not execute this command on the cracked launcher!'
                 error:
@@ -213,9 +236,15 @@ messages:
                     fadeOut: 1
                     title: '&a&lSuccessful!'
                     subtitle: '&aYour password has been changed!'
-                    header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-                    footer: '%NEW_LINE%&aYour password has been changed!%NEW_LINE%'
-                    chat: []
+                    header: |-
+                        &f
+                        &a&lWelcome %PLAYER_NAME%!
+                        &f
+                    footer: |-
+                        &f
+                        &aYour password has been changed!
+                        &f
+                    chat: ''
                 error:
                     registred: '&c&lRegistered! &cYou are not registered!'
                     logged: '&c&lLogged! &cYou are not logged!'
@@ -230,9 +259,15 @@ messages:
                     fadeOut: 1
                     title: '&a&lSuccessful!'
                     subtitle: '&aYour language has been changed!'
-                    header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-                    footer: '%NEW_LINE%&aYour language has been changed!%NEW_LINE%'
-                    chat: []
+                    header: |-
+                        &f
+                        &a&lWelcome %PLAYER_NAME%!
+                        &f
+                    footer: |-
+                        &f
+                        &aYour language has been changed!
+                        &f
+                    chat: ''
                 error:
                     registred: '&c&lRegistered! &cYou are not registered!'
                     logged: '&c&lLogged! &cYou are not logged!'
@@ -276,9 +311,15 @@ messages:
                         fadeOut: 1
                         title: '&a&lSuccessful!'
                         subtitle: '&aYour language has been changed!'
-                        header: '%NEW_LINE%&a&lWelcome %PLAYER_NAME%!%NEW_LINE%'
-                        footer: '%NEW_LINE%&aYour language has been changed!%NEW_LINE%'
-                        chat: []
+                        header: |-
+                            &f
+                            &a&lWelcome %PLAYER_NAME%!
+                            &f
+                        footer: |-
+                            &f
+                            &aYour language has been changed!
+                            &f
+                        chat: ''
                     language-changed: '&a&lLanguage Changed! &aLanguage has been changed!'
                 error:
                     registred: '&c&lRegistered! &cYou are not registered!'
