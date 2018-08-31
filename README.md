@@ -32,4 +32,8 @@
 
 ## Commands
 
-* Login command: default /login and /l with argument password
+* Login command, default /login with argument password.
+* Register command, default /register with arguments: password, repeat password and captcha.
+* Unregister command, default /unregister with argument password.
+* Change password command, default /language with argument language name.
+* Auto loign
