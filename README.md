@@ -10,6 +10,8 @@
      * You could have several login, register and lobby servers.
 * Premium players are authorized by original Mojang server, and cracked players by JPremium database.
 * JPremium has captcha on the Minecraft server and Google reCaptcha at registration website.
+* Plugin restores skins for cracked players.
+* Plugin has security against for join to direct to the Spigot server.
 * The plugin has admin commands, allow register new player, unregister old player, change player password, change player language and check is premium player.
 * You could set how many players can register by one ip address.
 * You could change all messages in config file.
