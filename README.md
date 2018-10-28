@@ -14,6 +14,7 @@
 * Plugin has security against for join to direct to the Spigot server.
 * The plugin has admin commands, allow register new player, unregister old player, change player password, change player language and check is premium player.
 * You could set how many players can register by one ip address.
+* You could set default skin for cracked players.
 * You could change all messages in config file.
 * You could add multi languages messages.
 * Support 1.8 - 1.12 version of Minecraft.
