@@ -31,6 +31,7 @@
 ![screenshoot](https://raw.githubusercontent.com/Jakubson/JPremium/master/images/57b3a8272705f857cf663bd068f777cfa608f8c2.png)
 ![screenshoot](https://raw.githubusercontent.com/Jakubson/JPremium/master/images/153d1674e1f489ae8a6d935ada200e085c6d756d.png)
 ![screenshoot](https://raw.githubusercontent.com/Jakubson/JPremium/master/images/c8b564f80ab80e1725045dcb5892a3b9f1dac676.png)
+![screenshoot](https://raw.githubusercontent.com/Jakubson/JPremium/master/images/2afdb41d75944a84d8a51c18de4a51f5108d87c5.png)
 ![screenshoot](https://raw.githubusercontent.com/Jakubson/JPremium/master/images/96a5d2b2ddaf435bead184c3b038282dec0d3246.png)
 
 ## Details
