@@ -10,6 +10,9 @@ settings:
         use-ssl: true
     use-proxy: false # Whether to use proxies to connect with Mojang servers. If you have server where is more than 500 players, I recommend turn on this.
     secret-key: none # Your server secret key, please enter this same key to config in JPremium config file on the Spigot servers.
+    default-skin: Jakubson # This player's skin set to all cracked players. Works only if 'fixed-unique-id' is enable. If you want to turn off it, please set empty value.
+    boss-bar-color: 2 # Color of boss bar. (0 - pink, 1 - blue, 2 - red, 3 - green, 4 - yellow, 5 - purple, 6 - white)
+    boss-bar-division: 0 # Division of boss bar. (0 - no division, 1 - 6 notches, 2 - 10 notches, 3 - 12 notches, 4 - 20 notches)
     max-ip-accounts: 2 # How many non-premium players can register with this same ip address.
     max-connections: 15 # How many players can join to the server within 30 seconds.
     fixed-unique-id: true # Whether to use random unique id for player. I recommend turn on it.
