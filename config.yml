@@ -1,3 +1,6 @@
+# If you have any issue with plugin install, please
+#   visit wiki page: https://github.com/Jakubson/JPremium/wiki/How-to-install-plugin%3F
+#   or contact with me: https://www.spigotmc.org/conversations/add?to=Jakubson
 settings:
     mysql:
         host: 127.0.0.1
@@ -5,10 +8,22 @@ settings:
         user: root
         password: password
         database: jpremium
-        first-table: non_premium_users
-        second-table: premium_users
+        first-table: # Change columns names do not produce change columns names in already created tables in MySQL!
+            name: non_premium_users
+            columns:
+                nickname: nickname
+                index: index
+                password: password
+                language: language
+                ip: ip
+        second-table: # Change columns names do not produce change columns names in already created tables in MySQL!
+            name: premium_users
+            columns:
+                uuid: uuid
+                index: index
+                language: language
         use-ssl: true
-    use-proxy: false # Whether to use proxies to connect with Mojang servers. If you have server where is more than 500 players, I recommend turn on this.
+    use-proxy: false # Whether to use proxies to connect with Mojang servers. If you have server where is more than 80 players, I recommend turn on this.
     secret-key: none # Your server secret key, please enter this same key to config in JPremium config file on the Spigot servers.
     default-skin: Jakubson # This player's skin set to all cracked players. Works only if 'fixed-unique-id' is enable. If you want to turn off it, please set empty value.
     boss-bar-color: 2 # Color of boss bar. (0 - pink, 1 - blue, 2 - red, 3 - green, 4 - yellow, 5 - purple, 6 - white)
