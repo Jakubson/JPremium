@@ -57,7 +57,7 @@ settings:
         time: 20 # How many time has non-premium player to login.
         kick-when-bad-password: false # Whether to kick non-premium player when he enter wrong password.
     register:
-        commands: # Register command aliases. The first command is main command.
+        commands: # Register command aliases. If you want disable command, please set to []
             - register
             - r
         server: # Server names to which non-premium player connect in order to register.
@@ -77,46 +77,45 @@ settings:
         captcha: true # Whether to non-premium player must enter captcha code during register.
         captcha-length: 6 # The length of captcha code. Maximal length is 32.
     unregister:
-        commands: # Unregister command aliases.
+        commands: # Unregister command aliases. If you want disable command, please set to []
             - unregister
             - unreg
     auto-login:
-        commands: # Auto login command aliases.
+        commands: # Auto login command aliases. If you want disable command, please set to []
             - autologin
             - al
     change-password:
-        commands: # Change password command aliases.
+        commands: # Change password command aliases. If you want disable command, please set to []
             - changepassword
             - change
     change-language:
-        commands: # Change language command aliases.
+        commands: # Change language command aliases. If you want disable command, please set to []
             - language
             - lang
     jpremium-register:
-        commands: # Register admin command aliases.
+        commands: # Register admin command aliases. If you want disable command, please set to []
             - jregister
             - jreg
     jpremium-unregister:
-        commands: # Unregister admin command aliases.
+        commands: # Unregister admin command aliases. If you want disable command, please set to []
             - junregister
             - junreg
     jpremium-change-password:
-        commands: # Change password admin command aliases.
+        commands: # Change password admin command aliases. If you want disable command, please set to []
             - jchangepassword
             - jchpass
     jpremium-change-language:
-        commands: # Change language admin command aliases.
+        commands: # Change language admin command aliases. If you want disable command, please set to []
             - jlanguage
             - jlang
     jpremium-verify:
-        commands: # Verify admin command aliases.
+        commands: # Verify admin command aliases. If you want disable command, please set to []
             - jverify
             - jver
 messages:
     en:
         servers-not-responding: '&c&lError! &cAuthentication servers do not respond, we can not verify your account!'
         max-ip-accounts: '&c&lError! &cYour ip address has already been registered with the maximum number of accounts!'
-        max-connections: '&c&lError! &cToo many players want to connection to the server now! Please wait and try again!'
         website-registration: '&a&lWebsite registration! &aPlease visit www.example.com/register to register your account!'
         update: '&a&lJPremium update! &aA new version of plugin! Download now from https://www.spigotmc.org/resources/jpremium.27766/'
         disallow-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
@@ -220,7 +219,7 @@ messages:
                         &aYou has logged by non-premium account!
                         &f
                 captcha: '&eYour captcha is &6%CAPTCHA%'
-                premium: '&a&lDetected premium! &aIf you have premium launcher and want to auto login your account, please execute /autologin! &cDo not execute this command on the cracked launcher!'
+                premium: '&a&lDetected premium! &aIf you have premium launcher and you want to auto login your account, please execute /autologin! &cDo not execute this command on the cracked launcher!'
                 error:
                     timeout: '&c&lTimeout! &cJoin to the server and try again!'
                     registered: '&c&lRegistered! &cYou are already registered!'
