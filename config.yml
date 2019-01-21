@@ -29,7 +29,6 @@ settings:
     boss-bar-color: 2 # Color of boss bar. (0 - pink, 1 - blue, 2 - red, 3 - green, 4 - yellow, 5 - purple, 6 - white)
     boss-bar-division: 0 # Division of boss bar. (0 - no division, 1 - 6 notches, 2 - 10 notches, 3 - 12 notches, 4 - 20 notches)
     max-ip-accounts: 2 # How many non-premium players can register with this same ip address.
-    max-connections: 15 # How many players can join to the server within 30 seconds.
     fixed-unique-id: true # Whether to use random unique id for player. I recommend turn on it.
     default-language: en # Default language from messages section.
     registration-type: SERVER # Whether to allow register non-premium players on the server, website or both sites.
