@@ -36,6 +36,6 @@
 
 ## Details
 
-* You could buy JPremium in my [store](https://www.spigotmc.org/resources/jpremium.27766/) at spigotmc.org for $6.99.
+* You could buy JPremium in my [store](https://www.spigotmc.org/resources/jpremium.27766/) at spigotmc.org for $8.99.
 * If you want more information about JPremium, You could see [wiki page](https://github.com/Jakubson/JPremium/wiki).
 * If you want contact with me, please write in [private message](https://www.spigotmc.org/conversations/add?to=Jakubson) on the spigotmc.org.
