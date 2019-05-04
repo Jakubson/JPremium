@@ -23,7 +23,6 @@ settings:
                 index: index
                 language: language
         use-ssl: true
-    use-proxy: false # Whether to use proxies to connect with Mojang servers. If you have server where is more than 80 players, I recommend turn on this.
     secret-key: none # Your server secret key, please enter this same key to config in JPremium config file on the Spigot servers.
     default-skin: Jakubson # This player's skin set to all cracked players. Works only if 'fixed-unique-id' is enable. If you want to turn off it, please set empty value.
     boss-bar-color: 2 # Color of boss bar. (0 - pink, 1 - blue, 2 - red, 3 - green, 4 - yellow, 5 - purple, 6 - white)
