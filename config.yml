@@ -99,6 +99,10 @@ settings:
         commands: # Unregister admin command aliases. If you want disable command, please set to []
             - junregister
             - junreg
+    jpremium-auto-login:
+          commands: # Unregister admin command aliases. If you want disable command, please set to []
+              - jautologin
+              - jal
     jpremium-change-password:
         commands: # Change password admin command aliases. If you want disable command, please set to []
             - jchangepassword
@@ -311,6 +315,17 @@ messages:
                     user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist!'
                     user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
                     user-is-not-registered: '&c&lUser is not registered! &cThis user is not registered!'
+            jpremium-auto-login:
+                after:
+                    turned-auto-login: '&a&lTurned auto login! &aThis user do not need password to login!'
+                    turned-password: '&a&lTurned password! &aThis user need password to login!'
+                    kick-message-turned-auto-login: '&a&lTurned auto login! &aYou do not need use password to login!'
+                    kick-message-turned-password: '&a&lTurned password! &aYou need use password to login!'
+                error:
+                    enter-nickname: '&c&lInvalid arguments! &cEnter player nickname!'
+                    enter-nickname-and-password: '&c&lInvalid arguments! &cEnter player nickname and password!'
+                    user-is-not-premium: '&c&lUser is Premium! &cThis user is premium player!'
+                    user-is-not-exits: '&c&lUser is not exist! &cThis user is not exist!'
             jpremium-change-password:
                 after:
                     user-kick: '&a&lPassword Changed! &aYour password has been changed!'
