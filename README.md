@@ -17,7 +17,7 @@
 * You could set default skin for cracked players.
 * You could change all messages in config file.
 * You could add multi languages messages.
-* Support 1.8 - 1.13 version of Minecraft.
+* Support 1.8 - 1.14 version of Minecraft.
 
 ## Required
 * BungeeCord server
@@ -36,6 +36,6 @@
 
 ## Details
 
-* You could buy JPremium in my [store](https://www.spigotmc.org/resources/jpremium.27766/) at spigotmc.org for $8.99.
+* You could buy JPremium in my [store](https://www.spigotmc.org/resources/jpremium.27766/) at spigotmc.org for $9.99.
 * If you want more information about JPremium, You could see [wiki page](https://github.com/Jakubson/JPremium/wiki).
 * If you want contact with me, please write in [private message](https://www.spigotmc.org/conversations/add?to=Jakubson) on the spigotmc.org.
