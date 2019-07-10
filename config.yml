@@ -23,6 +23,7 @@ settings:
                 index: index
                 language: language
         use-ssl: true
+        use-sqlite: false # You have to install this plugin on your BungeeCord server: https://www.spigotmc.org/resources/57191/
     secret-key: none # Your server secret key, please enter this same key to config in JPremium config file on the Spigot servers.
     default-skin: Jakubson # This player's skin set to all cracked players. Works only if 'fixed-unique-id' is enable. If you want to turn off it, please set empty value.
     boss-bar-color: 2 # Color of boss bar. (0 - pink, 1 - blue, 2 - red, 3 - green, 4 - yellow, 5 - purple, 6 - white)
@@ -115,6 +116,14 @@ settings:
         commands: # Verify admin command aliases. If you want disable command, please set to []
             - jverify
             - jver
+    jpremium-players:
+        commands:
+            - jplayers
+            - jplay
+    jpremium-convert:
+        commands:
+            - jconvert
+            - jconv
 messages:
     en:
         servers-not-responding: '&c&lError! &cAuthentication servers do not respond, we can not verify your account!'
@@ -302,7 +311,6 @@ messages:
                     registered: '&c&lRegistered! &cYou are not registered!'
                     logged: '&c&lLogged! &cYou are not logged!'
                     enter-nickname-and-password: '&c&lInvalid arguments! &cEnter player nickname and password!'
-                    user-is-premium: '&c&lUser is Premium! &cThis user is premium player!'
                     user-is-exist: '&c&lUser is exist! &cThis user is already exist!'
             jpremium-unregister:
                 after:
@@ -362,11 +370,18 @@ messages:
                     user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist!'
                     incorrect-language: '&c&lInvalid language! &cEnter correct language!'
             jpremium-verify:
-                  after:
-                      premium: '&a&lPremium &aThis user is premium!'
-                      non-premium: '&a&lNon-Premium &aThis user is non-premium!'
-                  error:
-                      registered: '&c&lRegistered! &cYou are not registered!'
-                      logged: '&c&lLogged! &cYou are not logged!'
-                      enter-nickname: '&c&lInvalid arguments! &cEnter player nickname!'
-                      user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist in JPremium database!'
+                after:
+                    premium: '&a&lPremium &aThis user is premium!'
+                    non-premium: '&a&lNon-Premium &aThis user is non-premium!'
+                error:
+                    registered: '&c&lRegistered! &cYou are not registered!'
+                    logged: '&c&lLogged! &cYou are not logged!'
+                    enter-nickname: '&c&lInvalid arguments! &cEnter player nickname!'
+                    user-is-not-exist: '&c&lUser is not exist! &cThis user is not exist in JPremium database!'
+            jpremium-players:
+                after:
+                    separator: '&8===================='
+                    list: '&a%NUMBER%&8. &a%PLAYER_CORRECT_NAME% &8/ &a%PLAYER_LANGUAGE% &8/ &a%PLAYER_IP%'
+                error:
+                    enter-min-max: '&c&lInvalid arguments! &cEnter min and max players quantity!'
+                    invalid-quantity: '&c&lInvalid arguments! &cMin must be greatest than 0 and smaller than max! Max must be equal or smaller than %MAX%!'
