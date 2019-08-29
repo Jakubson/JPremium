@@ -1,5 +1,5 @@
-# If you have any issue with plugin install, please
-#   visit wiki page: https://github.com/Jakubson/JPremium/wiki/How-to-install-plugin%3F
+# If you have any issue with plugin installation, please
+#   visit the plugin description page and scroll to 'Wiki' section: https://www.spigotmc.org/resources/27766/
 #   or contact with me: https://www.spigotmc.org/conversations/add?to=Jakubson
 settings:
     mysql:
@@ -31,10 +31,12 @@ settings:
     max-ip-accounts: 2 # How many non-premium players can register with this same ip address.
     fixed-unique-id: true # Whether to use random unique id for player. I recommend turn on it.
     default-language: en # Default language from messages section.
-    registration-type: SERVER # Whether to allow register non-premium players on the server, website or both sites.
+    registration-type: SERVER # Whether to allow register non-premium players on the server, website or both sites. (SERVER, WEBSITE, SERVER_AND_WEBSITE)
     disable-auto-login: true # Whether premium player can disable auto login.
     auto-login-premium: true # Whether to auto login new premium players.
     switch-server-timeout: 200 # How many the plugin must wait in order to connect player with another server. Change this value only when author of JPremium ask for it.
+    allow-nickname-length: 3-16 # How player nickname can be long.
+    allow-nickname-pattern: '[a-zA-Z0-9_]*' # Regex pattern of allow nickname.
     enable-allow-address: false # Whether to check address which player using to connect to the server.
     case-sensitive-allow-address: true # Whether to check case sensitive of allow addresses.
     allow-addresses: # Using only these addresses player can join to the server.
@@ -51,7 +53,7 @@ settings:
         server: # Server names to which non-premium player connect in order to login.
             - login1
             - login2
-        after: # Server names to which non-premium and premium player connect after login.
+        after: # Server names to which non-premium or premium player connect after login.
             - lobby1
             - lobby2
         time: 20 # How many time has non-premium player to login.
@@ -129,7 +131,8 @@ messages:
         servers-not-responding: '&c&lError! &cAuthentication servers do not respond, we can not verify your account!'
         max-ip-accounts: '&c&lError! &cYour ip address has already been registered with the maximum number of accounts!'
         website-registration: '&a&lWebsite registration! &aPlease visit www.example.com/register to register your account!'
-        update: '&a&lJPremium update! &aA new version of plugin! Download now from https://www.spigotmc.org/resources/jpremium.27766/'
+        update: '&a&lJPremium update! &aA new version of plugin! Download now from https://www.spigotmc.org/resources/jpremium.27766/' # A player must have 'jpremium.update' to see this message.
+        disallow-nickname: '&c&lDisallow nickname! &cLength of nickname must be from 3 to 16! Nickname also must only contain chars: A-Z, a-z 0-9 or _'
         disallow-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
         disallow-staff-address: '&c&lDisallow address! &cPlease connect to server using example.com address!'
         boss-bar: '&a&lHello %PLAYER_NAME%, You are playing on the &6&lEXAMPLE.COM&a&l!'
