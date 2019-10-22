@@ -31,12 +31,11 @@ settings:
     max-ip-accounts: 2 # How many non-premium players can register with this same ip address.
     fixed-unique-id: true # Whether to use random unique id for player. I recommend turn on it.
     default-language: en # Default language from messages section.
-    registration-type: SERVER # Whether to allow register non-premium players on the server, website or both sites. (SERVER, WEBSITE, SERVER_AND_WEBSITE)
+    registration-type: SERVER # Whether to allow register non-premium players on the server, website or both sites. (SERVER, WEBSITE, SERVER_AND_WEBSITE, SECURE - if to server joined more than 25 players in 3 minutes, next new players must register via website)
     disable-auto-login: true # Whether premium player can disable auto login.
     auto-login-premium: true # Whether to auto login new premium players.
     switch-server-timeout: 200 # How many the plugin must wait in order to connect player with another server. Change this value only when author of JPremium ask for it.
-    allow-nickname-length: 3-16 # How player nickname can be long.
-    allow-nickname-pattern: '[a-zA-Z0-9_]*' # Regex pattern of allow nickname.
+    allow-nickname-pattern: '[a-zA-Z0-9_]{3,16}' # Regex pattern of allow nickname.
     enable-allow-address: false # Whether to check address which player using to connect to the server.
     case-sensitive-allow-address: true # Whether to check case sensitive of allow addresses.
     allow-addresses: # Using only these addresses player can join to the server.
