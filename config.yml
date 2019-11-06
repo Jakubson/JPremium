@@ -387,3 +387,264 @@ messages:
                 error:
                     enter-min-max: '&c&lInvalid arguments! &cEnter min and max players quantity!'
                     invalid-quantity: '&c&lInvalid arguments! &cMin must be greatest than 0 and smaller than max! Max must be equal or smaller than %MAX%!'
+    pl:
+        servers-not-responding: '&c&lBłąd! &cSerwery autentykacji nie odpowiadają, nie możemy zweryfikować Twojego konta!'
+        max-ip-accounts: '&c&lBłąd! &cNa tym adresie IP zarejestrowano już maksymalną ilość kont!'
+        website-registration: '&a&lRejestracja poprzez stronę! &aProszę odwiedź adres www.example.com/register aby zarejestrować swoje konto!'
+        update: '&a&lJPremium update! &aNowa wersja pluginu! Pobierz teraz z https://www.spigotmc.org/resources/jpremium.27766/' # Użytkownik potrzebuje uprawnienia 'jpremium.update' aby widzieć tą wiadomość.
+        disallow-nickname: '&c&lNiedozwolony Nickname! &cDługość Nicku musi mieć od 3 do 16 znaków! Nickname może składać się tylko z znaków: A-Z, a-z 0-9 or _'
+        disallow-address: '&c&lNiedozwolony Adres! &cDołącz do serwera poprzez adres ADRES SERWERA!'
+        disallow-staff-address: '&c&lNiedozwolony Adres! &cDołącz do serwera poprzez adres ADRES SERWERA!'
+        boss-bar: '&a&lWitaj %PLAYER_NAME%, Znajdujesz się na serwerze &6&lNAZWA SERWERA&a&l!'
+        premium:
+            fadeIn: 1
+            stay: 3
+            fadeOut: 1
+            title: '&a&lWitaj %PLAYER_NAME%!'
+            subtitle: '&aDołączyłeś do nas używając konta premium!'
+            header: |-
+                &f
+                &a&lWitaj %PLAYER_NAME%!
+                &f
+            footer: |-
+                &f
+                &aDołączyłeś do nas używając konta premium!
+                &f
+            chat: |-
+                &f
+                &a&lWitaj %PLAYER_NAME%!
+                &aDołączyłeś do nas używając konta premium!
+                &f
+        non-premium:
+            login:
+                before:
+                    fadeIn: 1
+                    stay: 18
+                    fadeOut: 1
+                    title: '&e&lZaloguj się poprzez:'
+                    subtitle: '&6/login <hasło>'
+                    header: |-
+                        &f
+                        &e&lZaloguj się poprzez:
+                        &f
+                    footer: |-
+                        &f
+                        &6/login <hasło>
+                        &f
+                    chat: ''
+                after:
+                    fadeIn: 1
+                    stay: 3
+                    fadeOut: 1
+                    title: '&a&lWitaj %PLAYER_NAME%!'
+                    subtitle: '&aDołączyłeś do nas używając konta non-premium!'
+                    header: |-
+                        &f
+                        &a&lWitaj %PLAYER_NAME%!
+                        &f
+                    footer: |-
+                        &f
+                        &aDołączyłeś do nas używając konta non-premium!
+                        &f
+                    chat: |-
+                        &f
+                        &a&lWitaj %PLAYER_NAME%!
+                        &aDołączyłeś do nas używając konta premium!
+                        &f
+                error:
+                    timeout: '&c&lTimeout! &cSpróbuj ponownie!'
+                    registered: '&c&lZarejestrowany! &cMusisz być zarejestrowany by móc się zalogować!'
+                    logged: '&c&lZalogowany! &cJuż jesteś zalogowany!'
+                    enter-password: '&c&lNiepoprawne poświadczenia! &cWprowadź hasło i spróbuj ponownie!'
+                    incorrect-password: '&c&lNiepoprawne hasło! &cWprowadź poprawne hasło i spróbuj ponownie!'
+                    incorrect-nickname: '&c&lNiepoprawny Nick! &cZaloguj się za pomocą nicku %PLAYER_CORRECT_NAME%, nick %PLAYER_NAME% nie jest Twoim prawdziwym!'
+            register:
+                before:
+                    fadeIn: 1
+                    stay: 28
+                    fadeOut: 1
+                    title: '&e&lZarejestruj się za pomocą:'
+                    subtitle: '&6/register <hasło> <powtórz hasło> <captcha>'
+                    header: |-
+                        &f
+                        &e&lZarejestruj się za pomocą:
+                        &f
+                    footer: |-
+                        &f
+                        &6/register <hasło> <powtórz hasło> <captcha>
+                        &f
+                    chat: ''
+                after:
+                    fadeIn: 1
+                    stay: 3
+                    fadeOut: 1
+                    title: '&a&lWitaj %PLAYER_NAME%!'
+                    subtitle: '&aDołączyłeś do nas używając konta non-premium!'
+                    header: |-
+                        &f
+                        &a&lWitaj %PLAYER_NAME%!
+                        &f
+                    footer: |-
+                        &f
+                        &aDołączyłeś do nas używając konta non-premium!
+                        &f
+                    chat: |-
+                        &f
+                        &a&lWitaj %PLAYER_NAME%!
+                        &aDołączyłeś do nas używając konta non-premium!
+                        &f
+                captcha: '&eTwoje captcha to &6%CAPTCHA%'
+                premium: '&a&lWykryto konto premium! &aJeśli masz konto oraz launcher premium, proszę użyj komendy /autologin! &cNie używaj tej komendy jeśli launcher jest crackowany!'
+                error:
+                    timeout: '&c&lTimeout! &cSpróbuj ponownie!'
+                    registered: '&c&lZarejestrowany! &cJuż jesteś zarejestrowany!'
+                    enter-passwords: '&c&lNiepoprawne poświadczenia! &cWprowadź hasło, powtórz hasło, podaj captcha i spróbuj ponownie!'
+                    password-too-short: '&c&lNiepoprawne hasło! &cWprowadź dłuższe hasło!'
+                    password-too-long: '&c&lNiepoprawne hasło! &cWprowadź krótsze hasło!'
+                    password-bad: '&c&lNiepoprawne hasło! &cWprowadź lepsze hasło!'
+                    passwords-same: '&c&lNiepoprawne hasło! &cHasła nie są takie same!'
+                    incorrect-captcha: '&c&lNiepoprawne captcha! &cWprowadź poprawne captcha i spróbuj ponownie!'
+            unregister:
+                after: '&a&lNiezarejestrowany! &aTwoje konto zostało wyrejestrowane!'
+                error:
+                    registered: '&c&lZarejestrowany! &cNie jesteś zarejestrowany!'
+                    logged: '&c&lZalogowany! &cNie jesteś zalogowany!'
+                    premium: '&c&lJesteś użytkownikiem Premium &cNie możesz wyrejestrować tego konta!'
+                    enter-password: '&c&lNiepoprawne poświadczenia! &cWprowadź hasło i spróbuj ponownie!'
+                    incorrect-password: '&c&lNiepoprawne poświadczenia! &cWprowadź poprawne hasło i spróbuj ponownie!'
+            auto-login:
+                after:
+                    premium: '&a&lAuto Login! &aNie potrzebujesz hasła do logowania!'
+                    password: '&a&lAuto Login! &aPotrzebujesz hasła do logowania!'
+                error:
+                    premium: '&c&lNie jesteś użytkownikiem premium &cNie możesz używać auto logowania na koncie non-premium!'
+                    disable-auto-login: '&c&lDezaktywowano! &cNie możesz dezaktywować auto logowania!'
+                    enter-passwords: '&c&lNiepoprawne poświadczenia! &cWprowadź hasło, powrórz hasło i spróbuj ponownie!'
+                    password-too-short: '&c&lNiepoprawne poświadczenia! &cWprowadź dłuższe hasło!'
+                    password-too-long: '&c&Niepoprawne poświadczenia! &cWprowadź krótsze hasło!'
+                    password-bad: '&c&lNiepoprawne poświadczenia! &cWprowadź lepsze hasło!'
+                    passwords-same: '&c&lNiepoprawne poświadczenia! &cHasła nie są takie same!'
+            change-password:
+                after:
+                    fadeIn: 1
+                    stay: 3
+                    fadeOut: 1
+                    title: '&a&lSukces!'
+                    subtitle: '&aTwoje hasło zostało zmienione!'
+                    header: |-
+                        &f
+                        &a&lWitaj %PLAYER_NAME%!
+                        &f
+                    footer: |-
+                        &f
+                        &aTwoje hasło zostało zmienione!
+                        &f
+                    chat: ''
+                error:
+                    registred: '&c&lZarejestrowany! &cNie jesteś zarejestrowany!'
+                    logged: '&c&lZalogowany! &cNie jesteś zalogowany!'
+                    premium: '&c&lJesteś użytkownikiem konta Premium &cNie możesz zmienić hasła dla konta Premium!'
+                    enter-passwords: '&c&lNiepoprawne poświadczenia! &cWprowadź stare hasło, nowe hasło, powtórz nowe hasło i spróbuj ponownie!'
+                    incorrect-old-password: '&c&lNiepoprawne stare poświadczenia! &cWprowadź stare hasło i spróbuj ponownie!'
+                    passwords-same: '&c&lNiepoprawne poświadczenia! &cHasła nie są takie same!'
+            change-language:
+                after:
+                    fadeIn: 1
+                    stay: 3
+                    fadeOut: 1
+                    title: '&a&lSukces!'
+                    subtitle: '&aTwój język został zmieniony!'
+                    header: |-
+                        &f
+                        &a&lWitaj %PLAYER_NAME%!
+                        &f
+                    footer: |-
+                        &f
+                        &aTwój język został zmieniony!
+                        &f
+                    chat: ''
+                error:
+                    registred: '&c&lZarejestrowany! &cNie jesteś zarejestrowany!'
+                    logged: '&c&lZalogowany! &cNie jesteś zalogowany!'
+                    enter-language: '&c&lNiepoprawne informacje! &cWprowadź język!'
+                    incorrect-language: '&c&lNiepoprawny język! &cWprowadź poprawny język!'
+            jpremium-register:
+                after: '&a&lZarejestrowany! &aZostałeś zarejestrowany nowy użytkowniku!'
+                error:
+                    registered: '&c&lZarejestrowany! &cNie jesteś zarejestrowany!'
+                    logged: '&c&lZalogowany! &cNie jesteś zalogowany!'
+                    enter-nickname-and-password: '&c&lNiepoprawne poświadczenia! &cWprowadź nickname użytkownika oraz hasło!'
+                    user-is-exist: '&c&lUżytkownik istnieje! &cTen użytkownik już istnieje!'
+            jpremium-unregister:
+                after:
+                    user-kick: '&a&lNiezejestrowany &aTwoje konto zostało wyrejestrowane!'
+                    unregistered: '&a&lNiezejestrowany &aUżytkownik został wyrejestrowany!'
+                error:
+                    registered: '&c&lZarejestrowany! &cNie jesteś zarejestrowany!'
+                    logged: '&c&lZalogowany! &cNie jesteś zalogowany!'
+                    enter-nickname: '&c&lNiepoprawne poświadczenia! &cWprowadź nickname użytkownika!'
+                    user-is-not-exist: '&c&lUżytkownik nie istnieje! &cTen użytkownik nie istnieje!'
+                    user-is-premium: '&c&lUżytkownik jest posiadaczem konta Premium! &cTen użytkownik jest posiadaczem konta Premium!'
+                    user-is-not-registered: '&c&lUżytkownik nie jest zarejestrowany! &cTen użytkownik nie jest zarejestrowany!'
+            jpremium-auto-login:
+                after:
+                    turned-auto-login: '&a&lWłączony auto login! &aTen użytkownik nie potrzebuje hasła do logowania!'
+                    turned-password: '&a&lWyłączony auto login! &aTen użytkownik nie potrzebuje hasła do logowania!'
+                    kick-message-turned-auto-login: '&a&lWłączony auto login! &aNie potrzebujesz hasła do logowania!'
+                    kick-message-turned-password: '&a&lWyłączony auto login! &aPotrzebujesz hasła do logowania!'
+                error:
+                    enter-nickname: '&c&lNiepoprawne informacje! &cWprowadź nickname użytkownika!'
+                    enter-nickname-and-password: '&c&lNiepoprawne poświadczenia! &cWprowadź nickname i hasło użytkownika!'
+                    user-is-not-premium: '&c&lUżytkownik nie jest posiadaczem konta Premium! &cTen użytkownik nie jest posiadaczem konta Premium!'
+                    user-is-not-exits: '&c&lUżytkownik nie istnieje! &cTen użytkownik nie istnieje!'
+            jpremium-change-password:
+                after:
+                    user-kick: '&a&lHasło zostało zmienione! &aTwoje hasło zostało zmienione!'
+                    password-changed: '&a&lHasło zmienione! &aHasło zostało zmienione!'
+                error:
+                    registered: '&c&lZarejestrowany! &cNie jesteś zarejestrowany!'
+                    logged: '&c&lZalogowany! &cNie jesteś zalogowany!'
+                    enter-nickname-and-password: '&c&lNiepoprawne poświadczenia! &cWprowadź nickname i hasło!'
+                    user-is-not-exist: '&c&lUżytkownik nie istnieje! &cTen użytkownik nie istnieje!'
+                    user-is-premium: '&c&lUżytkownik jest posiadaczem konta Premium! &cTen użytkownik jest posiadaczem konta Premium!'
+                    user-is-not-registered: '&c&lUżytkownik nie jest zarejestrowany! &cTen użytkownik nie jest zarejestrowany!'
+            jpremium-change-language:
+                after:
+                    user-changed:
+                        fadeIn: 1
+                        stay: 3
+                        fadeOut: 1
+                        title: '&a&lSukces!'
+                        subtitle: '&aTwoje hasło zostało zmienione!'
+                        header: |-
+                            &f
+                            &a&lWitaj %PLAYER_NAME%!
+                            &f
+                        footer: |-
+                            &f
+                            &aTwoje hasło zostało zmienione!
+                            &f
+                        chat: ''
+                    language-changed: '&a&lJęzyk zmieniony! &aJęzyk został zmieniony!'
+                error:
+                    registred: '&c&lZarejestrowany! &cNie jesteś zarejestrowany!'
+                    logged: '&c&lZalogowany! &cNie jesteś zalogowany!'
+                    enter-nickname-and-language: '&c&lNiepoprawne poświadczenia! &cWprowadź nickname i język!'
+                    user-is-not-exist: '&c&lUżytkownik nie istenieje! &cTen użytkownik nie istnieje!'
+                    incorrect-language: '&c&lNiepoprawny język! &cWprowadź poprawny język!'
+            jpremium-verify:
+                after:
+                    premium: '&a&lPremium &aTo jest użytkownik premium!'
+                    non-premium: '&a&lNon-Premium &aTo jest użytkownik non-premium!'
+                error:
+                    registered: '&c&lZarejestrowany! &cNie jesteś zarejestrowany!'
+                    logged: '&c&lZalogowany! &cNie jesteś zalogowany!'
+                    enter-nickname: '&c&lNiepoprawne poświadczenia! &cWprowadź nickname!'
+                    user-is-not-exist: '&c&lUżytkownik nie istenieje! &cTen użytkownik nie istnieje w bazie danych!'
+            jpremium-players:
+                after:
+                    separator: '&8===================='
+                    list: '&a%NUMBER%&8. &a%PLAYER_CORRECT_NAME% &8/ &a%PLAYER_LANGUAGE% &8/ &a%PLAYER_IP%'
+                error:
+                    enter-min-max: '&c&lNiepoprawne informacje! &cWprowadź minimalną oraz maksymalną ilość użytkowników!'
+                    invalid-quantity: '&c&lNiepoprawne informacje! &cIlość minimalna musi być wyższa niż 0 oraz mniejsza niż maksimum! Maksimum musi być równe lub niższe niż %MAX%!'
