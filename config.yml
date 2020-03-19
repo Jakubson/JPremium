@@ -1,4 +1,4 @@
-# If you need help, please visit wiki page > https://github.com/Jakubson/JPremium/wiki
+# If you need help, please visit wiki page: https://github.com/Jakubson/JPremium/wiki
 settings:
     mysql:
         host: 127.0.0.1
@@ -22,7 +22,7 @@ settings:
                 language: language
         use-ssl: true
         use-sqlite: false # You have to install this plugin on your BungeeCord server: https://www.spigotmc.org/resources/57191/
-    secret-key: none # Your server secret key, please enter this same key to config in JPremium config file on the Spigot servers.
+    secret-key: none # Your server secret key, please enter this same key to config in JPremium config file on the Spigot servers. The secret key cannot start with a number!
     default-skin: Jakubson # This player's skin set to all cracked players. Works only if 'fixed-unique-id' is enable. If you want to turn off it, please set empty value.
     boss-bar-color: 3 # Color of boss bar. (0 - pink, 1 - blue, 2 - red, 3 - green, 4 - yellow, 5 - purple, 6 - white)
     boss-bar-division: 2 # Division of boss bar. (0 - no division, 1 - 6 notches, 2 - 10 notches, 3 - 12 notches, 4 - 20 notches)
@@ -31,16 +31,14 @@ settings:
     default-language: en # Default language from messages section.
     registration-type: SERVER # Whether to allow register non-premium players on the server, website or both sites. (SERVER, WEBSITE, SERVER_AND_WEBSITE, SECURE - if to server joined more than 25 players in 3 minutes, next new players must register via website)
     disable-auto-login: true # Whether premium player can disable auto login.
-    auto-login-premium: false # Whether to auto login new premium players.
+    auto-login-premium: true # Whether to auto login new premium players.
+    sending-captcha-code: true # Whether to send a captcha code to Spigot servers to generate a captcha map. You have to have 'createVoidWorld' enable in JPremium configuration on Spigot server to it work.
     switch-server-timeout: 200 # How many the plugin must wait in order to connect player with another server. Change this value only when author of JPremium ask for it.
-    allow-nickname-pattern: '[a-zA-Z0-9_]{3,16}' # Regex pattern of allow nickname.
+    allow-nickname-pattern: '[a-zA-Z0-9_]{3,16}' # Regex pattern of the allow nickname.
     enable-allow-address: false # Whether to check address which player using to connect to the server.
     case-sensitive-allow-address: true # Whether to check case sensitive of allow addresses.
-    allow-addresses: # Using only these addresses player can join to the server.
-      - example.com
-      - mc.example.com
-    staff-addresses: # Using only these addresses player with 'jpremium.staff' permission can join to the server.
-      - admin.example.com
+    allow-addresses: [] # Using only these addresses player can join to the server. All addresses must be typed with a port! For example: mc.example.com:25565
+    staff-addresses: [] # Using only these addresses player with 'jpremium.staff' permission can join to the server. All addresses must be typed with a port! For example: admin.example.com:25565
     login:
         commands:
             - login
@@ -48,25 +46,24 @@ settings:
         server: # Server names to which non-premium player connect in order to login.
             - authorisation
         after: # Server names to which non-premium or premium player connect after login.
-            - lobby
+            - survival
         time: 20 # How many time has non-premium player to login.
         kick-when-bad-password: false # Whether to kick non-premium player when he enter wrong password.
     register:
         commands:
             - register
-            - r
         server: # Server names to which non-premium player connect in order to register.
             - authorisation
         after: # Server names to which non-premium player connect after register.
-            - lobby
-        time: 60 # How many time has non-premium player to register.
-        password-min-length: 5 # What is the minimum number of characters in the password
-        password-max-length: 30 # What is the maximal number of characters in the password
+            - survival
+        time: 120 # How many time has non-premium player to register.
+        allow-password-pattern: '[\S]{5,32}' # Regex pattern of the allow password.
         case-sensitive-bad-passwords: true # Whether to check case sensitive of bad passwords.
         bad-passwords: # The passwords are considered as unsafe and non-premium player cannot set they as password.
             - 12345
             - qwerty
             - abcdef
+            - minecraft
         captcha: true # Whether to non-premium player must enter captcha code during register.
         captcha-length: 6 # The length of captcha code. Maximal length is 32.
     unregister:
@@ -81,6 +78,9 @@ settings:
     change-language:
         commands:
             - language
+    change-skin:
+        commands:
+            - skin
     jpremium-register:
         commands:
             - jregister
@@ -105,15 +105,19 @@ settings:
     jpremium-players:
         commands:
             - jplayers
+    jpremium-reload:
+        commands:
+            - jreload
     jpremium-convert:
         commands:
             - jconvert
 messages:
     en:
-        servers-not-responding: '&c&l# &7We cannot authorize your account at the moment! Please try again in a few minutes!'
+        servers-not-responding: '&c&l# &7The Mojang API provider does not respond for our request! We cannot process your request!'
         max-ip-accounts: '&c&l# &7You cannot register more accounts using your IP address!'
         website-registration: '&a&l# &7You have to register your account on &amc.example.com&7!'
         update: '&a&l# &7There is a new update of JPremium, please download now from &ahttps://www.spigotmc.org/resources/27766/&7!'
+        disabling-plugin: '&a&l# &7The server is restarting! Please come back in a second!'
         disallow-nickname: '&c&l# &7You cannot use your nickname on this server! Please try use another nickname!'
         disallow-address: '&c&l# &7You cannot join to the server using this address! Please use &amc.example.com &7address!'
         disallow-staff-address: '&c&l# &7This account requires a special server IP address to connect with it! Please contact with the server staff!'
@@ -175,16 +179,16 @@ messages:
                     timeout: '&c&l# &7The time to login was elapsed! Please try again!'
                     registered: '&c&l# &7You have to register your account to use that command!'
                     logged: '&c&l# &7You are already logged!'
-                    enter-password: '&c&l# &7!You have not entered all arguments! Please enter password!'
+                    enter-password: '&c&l# &7You have not entered all arguments! Please enter password!'
                     incorrect-password: '&c&l# &7You have entered incorrect password! Please enter correct password!'
                     incorrect-nickname: '&c&l# &7You use incorrect nickname! Please use &a%PLAYER_CORRECT_NAME%&7, not &c%PLAYER_NAME%&7!'
             register:
                 before:
-                    fadeIn: 1
-                    stay: 58
-                    fadeOut: 1
-                    title: '&a&l* &7Please register with &a&l*'
-                    subtitle: '&a/register &o<password> <re-password> <captcha>'
+                    fadeIn: 0
+                    stay: 0
+                    fadeOut: 0
+                    title: ''
+                    subtitle: ''
                     header: ''
                     footer: ''
                     chat: ''
@@ -197,7 +201,7 @@ messages:
                     header: ''
                     footer: ''
                     chat: ''
-                captcha: '&a&l* &7Your captcha code is &a%CAPTCHA% &a&l*'
+                captcha: '&a&l* &7/register &o<pass> <re-pass> <captcha> &a&l*'
                 premium: |
                     &f
                     &a # INFO #
@@ -217,8 +221,7 @@ messages:
                     timeout: '&c&l# &7The time to register was elapsed! Please try again!'
                     registered: '&c&l# &7You are already registered!'
                     enter-passwords: '&c&l# &7You have not entered all arguments! Please enter password, re-password and captcha!'
-                    password-too-short: '&c&l# &7You have entered too short password! Please enter longer password!'
-                    password-too-long: '&c&l# &7You have entered too long password! Please enter shorter password!'
+                    disallow-password: '&c&l# &7You have to enter another password! A password must be longer than 5 chars and shorted than 32 chars!'
                     password-bad: '&c&l# &7The password is too weak! Please enter stronger password!'
                     passwords-same: '&c&l# &7You have entered two different passwords! Please enter the same passwords!'
                     incorrect-captcha: '&c&l# &7You have entered incorrect captcha! Please enter captcha which is on the top of your screen!'
@@ -233,11 +236,12 @@ messages:
                     premium: '&a&l# &7You have switched your account to a premium! You do not need use login command now!!'
                     password: '&a&l# &7You have switched your account to a non-premium! You need use login command now!'
                 error:
+                    enter-password: '&c&l# &7You have not entered all arguments! Please enter password!'
+                    incorrect-password: '&c&l# &7You have entered incorrect password! Please enter correct password!'
                     premium: '&c&l# &7The non-premium players cannot use that command!'
                     disable-auto-login: '&c&l# &7You cannot switch your account to non-premium player!'
                     enter-passwords: '&c&l# &7You have not entered all arguments! Please enter a password, re-password!'
-                    password-too-short: '&c&l# &7You have entered too short password! Please enter longer password!'
-                    password-too-long: '&c&l# &7You have entered too long password! Please enter shorter password!'
+                    disallow-password: '&c&l# &7You have to enter another password! A password must be longer than 5 chars and shorted than 32 chars!'
                     password-bad: '&c&l# &7The password is too weak! Please enter stronger password!'
                     passwords-same: '&c&l# &7You have entered two different passwords! Please enter the same passwords!'
             change-password:
@@ -254,6 +258,8 @@ messages:
                     premium: '&c&l# &7The premium players cannot use that command!'
                     enter-passwords: '&c&l# &7You have not entered all arguments! Please enter an old password, a new password, re-new-password!'
                     incorrect-old-password: '&c&l# &7You have entered incorrect old password! Please enter old correct password!'
+                    disallow-password: '&c&l# &7You have to enter another password! A password must be longer than 5 chars and shorted than 32 chars!'
+                    password-bad: '&c&l# &7The password is too weak! Please enter stronger password!'
                     passwords-same: '&c&l# &7You have entered two different new passwords! Please enter the same passwords!'
             change-language:
                 after:
@@ -268,6 +274,22 @@ messages:
                 error:
                     enter-language: '&c&l# &7You have not entered all arguments! Please enter a language!'
                     incorrect-language: '&c&l# &7You have entered incorrect language name! Please enter correct language!'
+            change-skin:
+                after:
+                    fadeIn: 0
+                    stay: 0
+                    fadeOut: 0
+                    title: ''
+                    subtitle: ''
+                    header: ''
+                    footer: ''
+                    chat: '&a&l# &7Your skin has been changed! To see result, please re-join to the server!'
+                error:
+                    have-default-skin: '&c&l# &7You do not have a custom skin so you cannot reset it!'
+                    wait: '&a&l# &7Servers are processing your request! Please wait!'
+                    enter-skin: '&c&l# &7You have not entered all arguments! Please enter nothing (to to reset skin) or skin nickname (to set a new skin)!'
+                    too-many-requests: '&c&l# &7You can use that command every 5 minutes!'
+                    skin-is-not-exits: '&c&l# &7That skin is not exits!'
             jpremium-register:
                 after: '&a&l# &&You have register that user!'
                 error:
@@ -284,7 +306,7 @@ messages:
                     user-is-not-registered: '&c&l# &7That user is not registered!'
             jpremium-auto-login:
                 after:
-                    turned-auto-login: '&a&l# &&You have switched the account of that user to premium!'
+                    turned-auto-login: '&a&l# &7You have switched the account of that user to premium!'
                     turned-password: '&a&l# &7You have switched the account of that user to non-premium!'
                     kick-message-turned-auto-login: '&a&l# &7You have switched your account to a premium! You do not need use login command now!!'
                     kick-message-turned-password: '&a&l# &7You have switched your account to a non-premium! You need use login command now!'
@@ -321,11 +343,20 @@ messages:
                     incorrect-language: '&c&l# &7You have entered incorrect language name! Please enter correct language!'
             jpremium-change-skin:
                 after:
-                    user-changed: '&a&l# &7You skin has been changed! To see result, please re-join to the server!'
+                    user-changed:
+                        fadeIn: 0
+                        stay: 0
+                        fadeOut: 0
+                        title: ''
+                        subtitle: ''
+                        header: ''
+                        footer: ''
+                        chat: '&a&l# &7You skin has been changed! To see result, please re-join to the server!'
                     skin-changed: '&a&l# &7You have changed the skin of that user!'
                 error:
+                    have-default-skin: '&c&l# &7The player does not have a custom skin so you cannot reset it!'
                     wait: '&a&l# &7Servers are processing your request! Please wait!'
-                    eneter-nickname-and-skin: '&c&l# &7You have not entered all arguments! Please enter nickname itself (to restart skin) or nickname and skin nickname (to set a new skin)!'
+                    enter-nickname-and-skin: '&c&l# &7You have not entered all arguments! Please enter nickname itself (to reset skin) or nickname and skin nickname (to set a new skin)!'
                     too-many-requests: '&c&l# &7You can use that command every 5 minutes!'
                     skin-is-not-exits: '&c&l# &7That skin is not exits!'
             jpremium-verify:
